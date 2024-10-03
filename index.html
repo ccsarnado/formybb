@@ -29,20 +29,6 @@
             100% { opacity: 0.2; }
         }
 
-        /* Generate stars */
-        .star:nth-child(n) { /* Creating 500 stars */
-            top: calc(100% * var(--y));
-            left: calc(100% * var(--x));
-            width: var(--size);
-            height: var(--size);
-            animation: twinkle var(--twinkle-duration) infinite alternate;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.8; }
-            100% { opacity: 0; }
-        }
-
         /* Header styles */
         header {
             display: flex;
@@ -96,10 +82,10 @@
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
         }
         
-         .message-box:hover {
+        .message-box:hover {
             transform: scale(1.1); /* Image zooms in slightly */
             box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
-         }
+        }
         
         .message {
             font-size: 24px;
@@ -137,49 +123,11 @@
             box-shadow: 0 0 20px rgba(255, 218, 121, 1);
         }
 
-        .planet-1 {
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, #ffda79, #f39c12);
-            animation: orbit-1 30s linear infinite;
-            top: 50%;
-            left: 5%;
-        }
-
-        .planet-2 {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, #2e8bff, #1a5bb8);
-            animation: orbit-2 45s linear infinite;
-            top: 50%;
-            left: 25%;
-        }
-
-        .planet-3 {
-            width: 70px;
-            height: 70px;
-            background: radial-gradient(circle, #ff3d00, #c74b4b);
-            animation: orbit-3 50s linear infinite;
-            top: 50%;
-            left: 45%;
-        }
-
-        .planet-4 {
-            width: 90px;
-            height: 90px;
-            background: radial-gradient(circle, #d3d3d3, #a9a9a9); /* Light grey color */
-            animation: orbit-4 55s linear infinite;
-            top: 50%;
-            left: 65%;
-        }
-
+        /* Sun styles */
         .sun {
             width: 150px; /* Largest yellow planet */
             height: 150px;
             background: radial-gradient(circle, #fff000, #ffea00);
-            position: absolute;
-            top: 30%;
-            left: 80%;
             border-radius: 50%;
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
         }
@@ -190,8 +138,6 @@
             height: 140px;
             background: radial-gradient(circle, #ffa500, #ff4500);
             position: absolute;
-            top: 50%;
-            left: 50%;
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(255, 218, 121, 1);
             z-index: 0; /* Behind the rings */
@@ -203,9 +149,6 @@
             height: 180px; /* Ring size */
             border: 10px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            z-index: -1; /* Behind the planet */
             animation: rotate 10s linear infinite;
         }
 
@@ -215,34 +158,9 @@
         }
 
         /* Orbit animations */
-        @keyframes orbit-1 {
-            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-2 {
-            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-3 {
-            0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-4 {
-            0% { transform: rotate(0deg) translateX(350px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-5 {
-            0% { transform: rotate(0deg) translateX(400px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(400px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-6 {
-            0% { transform: rotate(0deg) translateX(450px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(450px) rotate(-360deg); }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(0) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(0) rotate(-360deg); }
         }
 
     </style>
@@ -258,8 +176,7 @@
 
     <div class="main">
         <div class="message-box">
-            <div class="message">"Hey Lian, baby, hon, hubby, every moment with you feels like everything to me"</div>
-            <div class="message">"Together is my favorite place to be, my home"</div>
+            <div class="message">Hey Lian, baby, hon, hubby, every moment with you feels like everything to me. Together is my favorite place to be, my home
         </div>
 
         <div class="gallery">
@@ -280,34 +197,52 @@
             <img src="IMG_20240909_135523.jpg" alt="Moment 15">
             <img src="IMG_20240909_135546.jpg" alt="Moment 16">
             <img src="IMG_20240928_130113.jpg" alt="Moment 17">
-            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18">
-            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
-            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
-            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
+            <img src="Messenger_creation_bc93c731-b67c-4576-b57c-4e29ed6d4b1f.png" alt="Moment 18">
+            <img src="Screenshot_2024-10-01-22-00-47-87.png" alt="Moment 19">
         </div>
-
-        <!-- Planets -->
-        <div class="planet planet-1"></div>
-        <div class="planet planet-2"></div>
-        <div class="planet planet-3"></div>
-        <div class="planet planet-4"></div>
-        <div class="sun"></div>
-        <div class="planet-rings">
-            <div class="rings"></div>
-        </div>
-
-        <!-- Generate stars -->
-        <script>
-            for (let i = 0; i < 500; i++) { // Generating 500 stars
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.setProperty('--x', Math.random());
-                star.style.setProperty('--y', Math.random());
-                star.style.setProperty('--size', Math.random() * 3 + 'px');
-                star.style.setProperty('--twinkle-duration', Math.random() * 2 + 1 + 's'); // Random twinkle duration
-                document.body.appendChild(star);
-            }
-        </script>
     </div>
+
+    <!-- Planets -->
+    <div class="planet sun" style="top: 10%; left: 80%; animation: orbit 10s linear infinite;"></div>
+    <div class="planet planet-1" style="top: 30%; left: 20%; width: 80px; height: 80px; background: radial-gradient(circle, #ffda79, #f39c12); animation: orbit 15s linear infinite;"></div>
+    <div class="planet planet-2" style="top: 60%; left: 40%; width: 100px; height: 100px; background: radial-gradient(circle, #2e8bff, #1a5bb8); animation: orbit 20s linear infinite;"></div>
+    <div class="planet planet-3" style="top: 20%; left: 70%; width: 70px; height: 70px; background: radial-gradient(circle, #ff3d00, #c74b4b); animation: orbit 25s linear infinite;"></div>
+    <div class="planet planet-4" style="top: 80%; left: 30%; width: 90px; height: 90px; background: radial-gradient(circle, #d3d3d3, #a9a9a9); animation: orbit 30s linear infinite;"></div>
+
+    <script>
+        // Function to generate random planets
+        function createRandomPlanets() {
+            const body = document.body;
+            const planetCount = 5; // Adjust the number of planets here
+            
+            for (let i = 0; i < planetCount; i++) {
+                const planet = document.createElement('div');
+                planet.classList.add('planet');
+
+                // Randomize size
+                const size = Math.random() * 80 + 20; // Random size between 20 and 100
+                planet.style.width = size + 'px';
+                planet.style.height = size + 'px';
+
+                // Randomize position
+                const top = Math.random() * 100; // Random top position
+                const left = Math.random() * 100; // Random left position
+                planet.style.top = top + '%';
+                planet.style.left = left + '%';
+
+                // Randomize colors
+                planet.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`; // Random color
+
+                // Randomize animation duration
+                const duration = Math.random() * 30 + 10; // Random duration between 10s and 40s
+                planet.style.animation = `orbit ${duration}s linear infinite`;
+
+                body.appendChild(planet);
+            }
+        }
+
+        // Call the function to create random planets
+        createRandomPlanets();
+    </script>
 </body>
 </html>
