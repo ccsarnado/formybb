@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Moments - Space Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             color: #fff;
-            overflow: auto; /* Hide scroll to make it feel like space */
-            background: linear-gradient(to bottom, #091236, #1b1b2f); /* Darker space-like colors */
-            animation: dayNightCycle 60s infinite; /* Smooth background transition from day to night */
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #091236, #1b1b2f);
+            animation: dayNightCycle 60s infinite ease-in-out;
+            transition: background 120s ease-in-out;
+            position: relative;
         }
 
         @keyframes dayNightCycle {
@@ -22,7 +24,7 @@
             100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Day */
         }
 
-        /* Add a starry background using CSS */
+        /* Starry background using CSS */
         body::before {
             content: "";
             position: absolute;
@@ -30,9 +32,29 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Starry texture */
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
             opacity: 0.3;
             z-index: -1;
+        }
+
+        /* Add twinkling stars */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/tiny-grid.png');
+            animation: twinkle 3s infinite ease-in-out;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 0.1; }
         }
 
         header {
@@ -40,7 +62,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
             border-radius: 10px;
             backdrop-filter: blur(10px);
@@ -51,10 +73,15 @@
         }
 
         h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 40px;
-            color: #ffda79; /* Glowing star color */
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            color: #ffda79;
             text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -62,7 +89,7 @@
             text-decoration: none;
             font-size: 18px;
             padding: 10px 15px;
-            transition: 0.3s;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -84,23 +111,30 @@
         }
 
         .gallery img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s ease-in-out;
         }
 
         .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.7);
         }
 
-        /* Glowing effect for the message text */
+        /* Glowing message effect with more beautiful font */
         .message {
-            font-size: 28px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
             color: #ffda79;
             text-shadow: 0 0 8px #ffda79, 0 0 12px #ffda79;
             animation: glowMessage 1.5s ease-in-out infinite alternate;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .message:hover {
+            transform: scale(1.05);
         }
 
         @keyframes glowMessage {
@@ -108,20 +142,29 @@
             100% { text-shadow: 0 0 20px #ffda79, 0 0 30px #ffda79; }
         }
 
-        /* Add planets and stars in the background */
+        /* Soft glowing, bouncy planets */
         .planet {
             position: absolute;
-            width: 100px;
-            height: 100px;
             background: radial-gradient(circle, #ffda79, #f39c12);
             border-radius: 50%;
-            animation: orbit 60s infinite linear;
+            animation: orbit 80s infinite linear, bounce 3s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 218, 121, 0.7), 0 0 40px rgba(255, 218, 121, 0.5);
         }
 
         @keyframes orbit {
             0% { transform: rotate(0deg) translateX(500px) rotate(0deg); }
             100% { transform: rotate(360deg) translateX(500px) rotate(-360deg); }
         }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .planet:hover {
+            animation-play-state: paused;
+        }
+
     </style>
 </head>
 <body>
@@ -163,12 +206,11 @@
             <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
             <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
             <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
-            <img src="fa7bf18c-88e2-4443-8e6a-3375b38b7e6.jpeg" alt="Moment 22">
         </div>
     </div>
 
-    <!-- Add a planet floating in space -->
-    <div class="planet" style="top: 50%; left: 30%;"></div>
+    <!-- Cute planets with glowing effects and bounce -->
+    <div class="planet" style="top: 50%; left: 30%; width: 120px; height: 120px;"></div>
     <div class="planet" style="top: 20%; right: 20%; width: 150px; height: 150px;"></div>
 
 </body>
