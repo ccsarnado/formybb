@@ -105,84 +105,56 @@
             100% { box-shadow: 0 0 20px rgba(255, 218, 121, 1); }
         }
 
-        @keyframes orbit-image-1 {
-            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-image-2 {
-            0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-image-3 {
-            0% { transform: rotate(0deg) translateX(210px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(210px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-image-4 {
-            0% { transform: rotate(0deg) translateX(240px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
-        }
-
         .planet {
             position: absolute;
             border-radius: 50%;
             opacity: 0.9;
             animation: glow 1.5s infinite alternate; /* Add glow animation */
-        }
-
-        .planet-1 {
-            width: 160px;
-            height: 160px;
-            animation: orbit-image-1 10s linear infinite;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, #ffda79, #ffce00); /* Yellow planet */
-        }
-
-        .planet-2 {
-            width: 140px;
-            height: 140px;
-            animation: orbit-image-2 12s linear infinite;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, #c780e8, #6f5b97); /* Purple planet */
-        }
-
-        .planet-3 {
-            width: 150px;
-            height: 150px;
-            animation: orbit-image-3 15s linear infinite;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, #00aaff, #007bb2); /* Blue planet */
-        }
-
-        .planet-4 {
-            width: 135px;
-            height: 135px;
-            animation: orbit-image-4 20s linear infinite;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, #f0f0f0, #d0d0d0); /* Silver planet for moon */
+            border: 5px solid rgba(255, 218, 121, 1); /* Glowing border */
         }
 
         .sun {
-            width: 400px; 
-            height: 400px; 
+            width: 250px; 
+            height: 250px; 
             background: radial-gradient(circle, #fff000, #ffea00);
             position: absolute;
-            top: 35%; 
-            left: 400%; /* Position the sun on the upper left side */
+            top: 30%; 
+            left: 10%; /* Position the sun on the upper left side */
             transform: translate(-50%, -50%); /* Centering the sun */
             border-radius: 50%;
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
             animation: glow 1.5s infinite alternate; /* Add glow animation to the sun */
+            border: 5px solid rgba(255, 218, 121, 1); /* Glowing border */
+        }
+
+        /* Add random movement for the planets */
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, -100px); }
+            50% { transform: translate(200px, 50px); }
+            75% { transform: translate(-100px, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .planet-1 { 
+            width: 50px; height: 50px; 
+            background-color: #FF5733; 
+            animation: move 6s linear infinite; 
+        }
+        .planet-2 { 
+            width: 60px; height: 60px; 
+            background-color: #33FF57; 
+            animation: move 8s linear infinite; 
+        }
+        .planet-3 { 
+            width: 70px; height: 70px; 
+            background-color: #3357FF; 
+            animation: move 10s linear infinite; 
+        }
+        .planet-4 { 
+            width: 80px; height: 80px; 
+            background-color: #FF33A1; 
+            animation: move 12s linear infinite; 
         }
     </style>
 </head>
@@ -195,16 +167,17 @@
         <div class="message-box">
             <div class="message">To my Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟🌌💫. Here’s to many more months and adventures together! 🥹❤️
             </div>
-
-            <!-- Planets -->
-            <div class="planet planet-1"></div>
-            <div class="planet planet-2"></div>
-            <div class="planet planet-3"></div>
-            <div class="planet planet-4"></div>
-            <div class="sun"></div> <!-- Glowing Sun -->
+            <!-- Glowing Sun -->
+            <div class="sun"></div> 
         </div>
 
-         <div class="gallery">
+        <!-- Planets -->
+        <div class="planet planet-1"></div>
+        <div class="planet planet-2"></div>
+        <div class="planet planet-3"></div>
+        <div class="planet planet-4"></div>
+
+        <div class="gallery">
             <img src="IMG_20240717_203950_513.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -5s;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240819_145219_833.jpg" style="animation: orbit-image-2 25s linear infinite; animation-delay: -8s;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240722_112807_661.jpg" style="animation: orbit-image-3 25s linear infinite; animation-delay: -10s;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
@@ -214,8 +187,10 @@
             <img src="IMG_20240909_135546.jpg" style="animation: orbit-image-3 25s linear infinite; animation-delay: -4s;" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
             <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" style="animation: orbit-image-4 25s linear infinite; animation-delay: -6s;" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
             <img src="BD3F8E6D-71D6-4B92-B3F3-ABEB084B647A.jpeg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -2s;" alt="Moment 23" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240910_150001.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -1s;" alt="Moment 24" onclick="openModal(this.src)" loading="lazy">
         </div>
     </div>
+
 
     <script>
         // Create 1000 stars
