@@ -12,12 +12,11 @@
             margin: 0;
             padding: 0;
             color: #fff;
-            overflow: hidden; /* Hides scrollbars */
-            background-color: #0f1928; /* Static dark background */
-            position: relative; /* For absolute positioning of stars */
+            overflow: hidden;
+            background-color: #0f1928;
+            position: relative;
         }
 
-        /* Flickering stars */
         .star {
             position: absolute;
             background-color: white;
@@ -30,24 +29,9 @@
             100% { opacity: 0.2; }
         }
 
-        /* Generate stars */
-        .star:nth-child(n) {
-            top: calc(100% * var(--y));
-            left: calc(100% * var(--x));
-            width: var(--size);
-            height: var(--size);
-            animation: twinkle var(--twinkle-duration) infinite alternate;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.8; }
-            100% { opacity: 0; }
-        }
-
-        /* Header styles */
         header {
             display: flex;
-            justify-content: center; /* Centered */
+            justify-content: center;
             align-items: center;
             padding: 30px;
             background: rgba(0, 0, 0, 0.6);
@@ -68,27 +52,26 @@
 
         .main {
             text-align: center;
-            padding-top: 160px; /* Increased padding to avoid overlap */
+            padding-top: 160px;
             color: #fff;
         }
 
-        /* Message Box Styles */
         .message-box {
             background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             padding: 20px;
             margin: 20px auto;
-            width: 90%; /* Increased width */
-            max-width: 800px; /* Increased maximum width */
+            width: 90%;
+            max-width: 800px;
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .message-box:hover {
-            transform: scale(1.1); /* Image zooms in slightly */
-            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1);
         }
-        
+
         .message {
             font-size: 24px;
             color: #ffda79;
@@ -96,63 +79,70 @@
         }
 
         .gallery {
+            position: relative;
+            height: 600px; /* Adjust to fit the orbiting images */
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            position: relative; /* Keep the gallery in its relative position */
-            z-index: 2; /* Ensure the gallery is above other elements */
+            align-items: center;
+            margin: 20px 0;
         }
 
         .gallery img {
-            max-width: 90px; /* Maximum width */
-            max-height: 90px; /* Maximum height to prevent stretching */
-            height: auto; /* Maintain aspect ratio */
+            max-width: 90px;
+            max-height: 90px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
-            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
-            animation: move 10s linear infinite; /* Added movement */
-        }
-
-        @keyframes move {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1); /* Image zooms in slightly */
-            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
-        }
-        
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-        }
-
-        .modal img {
-            margin: auto;
-            display: block;
-            max-width: 90%; /* Responsive */
-            max-height: 90%; /* Responsive */
-            margin-top: 5%; /* Top margin for centering */
-        }
-
-        .close {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             position: absolute;
-            top: 20px;
-            right: 40px;
-            color: #fff;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
+        }
+
+        @keyframes orbit-img-1 {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-2 {
+            0% { transform: rotate(0deg) translateX(230px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(230px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-3 {
+            0% { transform: rotate(0deg) translateX(260px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(260px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-4 {
+            0% { transform: rotate(0deg) translateX(290px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(290px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-5 {
+            0% { transform: rotate(0deg) translateX(320px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(320px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-6 {
+            0% { transform: rotate(0deg) translateX(350px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-7 {
+            0% { transform: rotate(0deg) translateX(380px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(380px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-8 {
+            0% { transform: rotate(0deg) translateX(410px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(410px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-9 {
+            0% { transform: rotate(0deg) translateX(440px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(440px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-img-10 {
+            0% { transform: rotate(0deg) translateX(470px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(470px) rotate(-360deg); }
         }
 
         /* Planet styles */
@@ -244,27 +234,16 @@
         </div>
 
 <div class="gallery">
-    <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
-    <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240909_135546.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240928_130113.jpg" alt="Moment 17" onclick="openModal(this.src)" loading="lazy">
-    <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
-    <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
-    <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
-    <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240717_203950_513.jpg" style="animation: orbit-img-1 25s linear infinite;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145219_833.jpg" style="animation: orbit-img-2 25s linear infinite;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240722_112807_661.jpg" style="animation: orbit-img-3 25s linear infinite;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240904_122750.jpg" style="animation: orbit-img-4 25s linear infinite;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">  
+    <img src="IMG_20240819_145305_021.jpg" style="animation: orbit-img-5 25s linear infinite;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240813_201217_818.jpg" style="animation: orbit-img-6 25s linear infinite;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240909_135546.jpg" style="animation: orbit-img-7 25s linear infinite;" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
+    <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" style="animation: orbit-img-8 25s linear infinite;" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
+    <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" style="animation: orbit-img-9 25s linear infinite;" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
+    <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" style="animation: orbit-img-10 25s linear infinite;" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
 </div>
 
     </div>
