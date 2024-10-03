@@ -3,130 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Moments</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <title>Our Moments - Space Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* General styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
-            background-size: cover;
-            background-position: center;
-            color: white;
-            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow: hidden; /* Hide scroll to make it feel like space */
+            background: linear-gradient(to bottom, #091236, #1b1b2f); /* Darker space-like colors */
+            animation: dayNightCycle 60s infinite; /* Smooth background transition from day to night */
         }
 
-        /* Styling the header */
+        @keyframes dayNightCycle {
+            0% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Day */
+            50% { background: linear-gradient(to bottom, #091236, #1b1b2f); } /* Night */
+            100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Day */
+        }
+
+        /* Add a starry background using CSS */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Starry texture */
+            opacity: 0.3;
+            z-index: -1;
+        }
+
         header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #f67280;
-        }
-
-        header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            color: #f67280;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Styling the anniversary message */
-        .anniversary-message {
-            text-align: center;
-            margin: 20px;
-            padding: 15px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
             background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
             border-radius: 10px;
-            color: #ffb6c1;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
-        .anniversary-message span {
-            font-size: 1.7rem;
-            font-weight: bold;
-            color: #ff5e78;
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            color: #ffda79; /* Glowing star color */
+            text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
         }
 
-        /* Styling the image gallery */
+        .nav-links a {
+            color: #ffda79;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px #ffffff, 0 0 12px #ffda79;
+        }
+
+        .main {
+            text-align: center;
+            padding-top: 120px;
+            color: #fff;
+        }
+
         .gallery {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            padding: 20px;
+            gap: 20px;
         }
 
         .gallery img {
-            border-radius: 15px;
-            max-width: 200px;
+            width: 300px;
             height: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* Styling the navbar */
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: rgba(255, 105, 180, 0.8);
-            padding: 10px;
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+        /* Glowing effect for the message text */
+        .message {
+            font-size: 28px;
+            color: #ffda79;
+            text-shadow: 0 0 8px #ffda79, 0 0 12px #ffda79;
+            animation: glowMessage 1.5s ease-in-out infinite alternate;
         }
 
-        nav a:hover {
-            color: #ff69b4;
-            text-decoration: underline;
+        @keyframes glowMessage {
+            0% { text-shadow: 0 0 10px #ffda79; }
+            100% { text-shadow: 0 0 20px #ffda79, 0 0 30px #ffda79; }
         }
 
-        /* Footer styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #ffcccb;
+        /* Add planets and stars in the background */
+        .planet {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #ffda79, #f39c12);
+            border-radius: 50%;
+            animation: orbit 60s infinite linear;
         }
 
-        footer a {
-            color: #ff69b4;
-            text-decoration: none;
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(500px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(500px) rotate(-360deg); }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Our Moments</h1>
+        <nav class="nav-links">
+            <a href="OurMoments">Home</a>
+            <a href="AboutUs">About Us</a>
+            <a href="Gallery">Gallery</a>
+            <a href="Messages">Messages</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="messages.html">Messages</a>
-    </nav>
+    <div class="main">
+        <div class="message">"Hey Lian, every moment with you feels like a beautiful dream! 🌌"</div>
+        <div class="message">"Together is my favorite place to be! 🚀"</div>
 
-    <section class="anniversary-message">
-        <p>"Hey Lian, today marks our 6-month anniversary! We've shared half a year of love, laughter, and unforgettable memories. Every moment with you feels like magic, and I can't wait for all the adventures still ahead of us. <span>💖</span></p>
-        <p>"Six months down, and a lifetime to go! Together, we've overcome every challenge and made beautiful memories along the way. I love you more each day, and I'm so excited for the future. Here's to many more months and years of happiness! 🌈"</p>
-    </section>
+        <div class="gallery">
+            <!-- All the images -->
+            <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1">
+            <img src="IMG_20240530_111356_771.jpg" alt="Moment 2">
+            <img src="IMG_20240717_203950_513.jpg" alt="Moment 3">
+            <img src="IMG_20240722_112734_689.jpg" alt="Moment 4">
+            <img src="IMG_20240722_112807_661.jpg" alt="Moment 5">
+            <img src="IMG_20240722_112826_289.jpg" alt="Moment 6">
+            <img src="IMG_20240813_201217_818.jpg" alt="Moment 7">
+            <img src="IMG_20240819_145154_108.jpg" alt="Moment 8">
+            <img src="IMG_20240819_145219_833.jpg" alt="Moment 9">
+            <img src="IMG_20240819_145305_021.jpg" alt="Moment 10">
+            <img src="IMG_20240819_145322_858.jpg" alt="Moment 11">
+            <img src="IMG_20240904_122750.jpg" alt="Moment 12">
+            <img src="IMG_20240904_224615.jpg" alt="Moment 13">
+            <img src="IMG_20240907_144440.jpg" alt="Moment 14">
+            <img src="IMG_20240909_135523.jpg" alt="Moment 15">
+            <img src="IMG_20240909_135546.jpg" alt="Moment 16">
+            <img src="IMG_20240928_130113.jpg" alt="Moment 17">
+            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18">
+            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
+            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
+            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
+            <img src="fa7bf18c-88e2-4443-8e6a-3375b38b7e6.jpeg" alt="Moment 22">
+        </div>
+    </div>
 
-    <section class="gallery">
-        <img src="file-XcslenkNzgzReHs0uT9h5dhW" alt="First image">
-        <img src="file-Bpl5KqnQsdAcTc60PaZLAF2v" alt="Second image">
-        <img src="file-MRPjRozIG8cI8Wrxn2uXQLWb" alt="Space-themed background">
-    </section>
+    <!-- Add a planet floating in space -->
+    <div class="planet" style="top: 50%; left: 30%;"></div>
+    <div class="planet" style="top: 20%; right: 20%; width: 150px; height: 150px;"></div>
 
-    <footer>
-        <p>© 2024 - Our Journey Together. <a href="gallery.html">View Gallery</a></p>
-    </footer>
 </body>
 </html>
