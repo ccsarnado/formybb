@@ -103,66 +103,39 @@
             border-radius: 50%;
             opacity: 0.8;
             box-shadow: 0 0 20px rgba(255, 218, 121, 0.7);
+            animation: moveRandomly 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveRandomly {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(20vw - 10%), calc(10vh - 5%)); }
+            50% { transform: translate(calc(40vw - 20%), calc(20vh - 10%)); }
+            75% { transform: translate(calc(30vw - 15%), calc(25vh - 15%)); }
+            100% { transform: translate(calc(10vw - 5%), calc(30vh - 20%)); }
         }
 
         .planet-1 {
             width: 160px;
             height: 160px;
             background: radial-gradient(circle, #ffda79, #ffce00);
-            animation: movePlanet1 10s infinite alternate;
         }
 
         .planet-2 {
             width: 140px;
             height: 140px;
             background: radial-gradient(circle, #c0c0c0, #a8a8a8);
-            animation: movePlanet2 12s infinite alternate;
         }
 
         .planet-3 {
             width: 150px;
             height: 150px;
             background: radial-gradient(circle, #00aaff, #007bb2);
-            animation: movePlanet3 8s infinite alternate;
         }
 
         .planet-4 {
             width: 135px;
             height: 135px;
             background: radial-gradient(circle, #ff7777, #b42d2d);
-            animation: movePlanet4 11s infinite alternate;
-        }
-
-        @keyframes movePlanet1 {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(10vw - 5%), calc(5vh - 5%)); }
-            50% { transform: translate(calc(30vw - 15%), calc(15vh - 10%)); }
-            75% { transform: translate(calc(40vw - 20%), calc(10vh - 5%)); }
-            100% { transform: translate(calc(20vw - 10%), calc(20vh - 15%)); }
-        }
-
-        @keyframes movePlanet2 {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(15vw - 10%), calc(8vh - 8%)); }
-            50% { transform: translate(calc(25vw - 15%), calc(12vh - 5%)); }
-            75% { transform: translate(calc(35vw - 20%), calc(5vh - 3%)); }
-            100% { transform: translate(calc(45vw - 25%), calc(18vh - 10%)); }
-        }
-
-        @keyframes movePlanet3 {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(20vw - 10%), calc(10vh - 5%)); }
-            50% { transform: translate(calc(35vw - 15%), calc(15vh - 8%)); }
-            75% { transform: translate(calc(40vw - 25%), calc(10vh - 5%)); }
-            100% { transform: translate(calc(30vw - 15%), calc(20vh - 12%)); }
-        }
-
-        @keyframes movePlanet4 {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(5vw - 5%), calc(7vh - 5%)); }
-            50% { transform: translate(calc(20vw - 10%), calc(12vh - 10%)); }
-            75% { transform: translate(calc(30vw - 15%), calc(8vh - 5%)); }
-            100% { transform: translate(calc(15vw - 10%), calc(20vh - 15%)); }
         }
 
         .sun {
@@ -201,14 +174,14 @@
     <div class="gallery">
         <img src="IMG_20240717_203950_513.jpg" style="top: 10%; left: 30%;" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
         <img src="IMG_20240819_145219_833.jpg" style="top: 5%; left: 40%;" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240720_100905_264.jpg" style="top: 10%; left: 20%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240715_160428_308.jpg" style="top: 8%; left: 60%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240801_174210_838.jpg" style="top: 12%; left: 70%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240710_120435_835.jpg" style="top: 7%; left: 80%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240815_123715_248.jpg" style="top: 15%; left: 90%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240725_143057_610.jpg" style="top: 20%; left: 50%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240730_155056_152.jpg" style="top: 18%; left: 30%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240805_110435_540.jpg" style="top: 25%; left: 40%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240722_112807_661.jpg" style="top: 10%; left: 20%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240904_122750.jpg" style="top: 8%; left: 60%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145305_021.jpg" style="top: 12%; left: 70%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240813_201217_818.jpg" style="top: 7%; left: 80%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240909_135546.jpg" style="top: 15%; left: 90%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+        <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpg" style="top: 20%; left: 50%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+        <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpg" style="top: 18%; left: 30%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
+        <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpg" style="top: 25%; left: 40%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
     </div>
 
     <script>
