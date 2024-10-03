@@ -48,19 +48,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 40px;
             background: rgba(0, 0, 0, 0.6);
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
             border-radius: 10px;
             backdrop-filter: blur(10px);
             position: fixed;
-            width: 100%;
+            width: 200%;
             top: 0;
             z-index: 1000;
         }
 
         h1 {
             font-size: 40px;
+            align-items: center;
             color: #ffda79;
             text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
         }
@@ -171,24 +172,6 @@
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
         }
 
-        /* Constellation styles */
-        .constellation {
-            position: absolute;
-            color: #ffda79;
-            font-size: 18px;
-            text-shadow: 0 0 5px #ffda79, 0 0 10px #ffda79;
-        }
-
-        .gemini {
-            top: 10%;
-            left: 30%;
-        }
-
-        .aries {
-            top: 80%;
-            left: 50%;
-        }
-
         /* Orbit animations */
         @keyframes orbit-1 {
             0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
@@ -229,7 +212,7 @@
 
     <div class="main">
         <div class="message-box">
-            <div class="message">Hey Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟💫. I cherish every laugh 😂, every hug 🤗, and every dream we share 🌙💕</div>
+            <div class="message">Hey Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟💫. I cherish every laugh, every hug, and every dream we share 🌙💕</div>
         </div>
 
         <div class="gallery">
@@ -257,9 +240,6 @@
         </div>
     </div>
 
-    <!-- Constellations -->
-    <div class="constellation gemini">♊ Gemini</div>
-    <div class="constellation aries">♈ Aries</div>
 
     <!-- Planets -->
     <div class="planet planet-1"></div>
