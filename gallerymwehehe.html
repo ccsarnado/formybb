@@ -181,6 +181,41 @@
             left: 65%;
         }
 
+        .planet-5 {
+            width: 110px; /* Increased size */
+            height: 110px; /* Increased size */
+            background: radial-gradient(circle, #ffda79, #f39c12);
+            animation: orbit-5 30s linear infinite; /* Different orbit animation */
+            bottom: 10%; /* Start from the bottom */
+            left: 5%;
+        }
+
+        .planet-6 {
+            width: 130px; /* Increased size */
+            height: 130px; /* Increased size */
+            background: radial-gradient(circle, #2e8bff, #1a5bb8);
+            animation: orbit-6 45s linear infinite; /* Different orbit animation */
+            bottom: 60%; /* Start from further down */
+            left: 15%;
+        }
+
+        .planet-7 {
+            width: 100px; /* Increased size */
+            height: 100px; /* Increased size */
+            background: radial-gradient(circle, #ff3d00, #c74b4b);
+            animation: orbit-7 50s linear infinite; /* Different orbit animation */
+            bottom: 40%; /* Start from mid bottom */
+            left: 45%;
+        }
+
+        .planet-8 {
+            width: 120px; /* Increased size */
+            height: 120px; /* Increased size */
+            background: radial-gradient(circle, #d3d3d3, #a9a9a9); /* Light grey color */
+            animation: orbit-8 55s linear infinite; /* Different orbit animation */
+            bottom: 40%; /* Start from mid bottom */
+            left: 65%;
+        }
         /* Sun adjustments */
         .sun {
             width: 250px; /* Largest yellow planet */
@@ -195,23 +230,44 @@
 
         /* Orbit animations */
         @keyframes orbit-1 {
-            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(100px); }
+            100% { transform: rotate(360deg) translateX(100px); }
         }
 
         @keyframes orbit-2 {
-            0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(110px); }
+            100% { transform: rotate(360deg) translateX(110px); }
         }
 
         @keyframes orbit-3 {
-            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(90px); }
+            100% { transform: rotate(360deg) translateX(90px); }
         }
 
         @keyframes orbit-4 {
-            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(120px); }
+            100% { transform: rotate(360deg) translateX(120px); }
+        }
+
+        /* New orbit animations for the bottom planets */
+        @keyframes orbit-5 {
+            0% { transform: rotate(0deg) translateX(100px); }
+            100% { transform: rotate(360deg) translateX(100px); }
+        }
+
+        @keyframes orbit-6 {
+            0% { transform: rotate(0deg) translateX(110px); }
+            100% { transform: rotate(360deg) translateX(110px); }
+        }
+
+        @keyframes orbit-7 {
+            0% { transform: rotate(0deg) translateX(90px); }
+            100% { transform: rotate(360deg) translateX(90px); }
+        }
+
+        @keyframes orbit-8 {
+            0% { transform: rotate(0deg) translateX(120px); }
+            100% { transform: rotate(360deg) translateX(120px); }
         }
     </style>
 </head>
@@ -219,11 +275,17 @@
     <div id="starfield"></div>
     <div class="sun"></div> <!-- Sun element -->
 
-    <!-- Planet elements added -->
+    <!-- Planet elements for top orbiting planets -->
     <div class="planet planet-1"></div>
     <div class="planet planet-2"></div>
     <div class="planet planet-3"></div>
     <div class="planet planet-4"></div>
+
+    <!-- Planet elements for bottom orbiting planets -->
+    <div class="planet planet-5"></div>
+    <div class="planet planet-6"></div>
+    <div class="planet planet-7"></div>
+    <div class="planet planet-8"></div>
 
     <div class="image-container">
         <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
