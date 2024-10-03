@@ -46,7 +46,7 @@
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 60px;
             color: #ffda79;
             text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
         }
@@ -91,19 +91,23 @@
             overflow: hidden;
         }
 
-        .gallery img {
-            max-width: 100px;
-            max-height: 100px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 218, 121, 0.5);
-            position: absolute;
-            animation: glow 1.5s infinite alternate;
-        }
+    .gallery img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 218, 121, 0.5);
+    position: absolute;
+    animation: glow 1.5s infinite alternate, moveImage 10s infinite alternate; /* Added moveImage animation */
+}
 
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(255, 218, 121, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(255, 218, 121, 0.7); }
-        }
+@keyframes moveImage {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(calc(50vw - 50%), calc(50vh - 50%)); }
+}
+
+.gallery img:hover {
+    box-shadow: 0 0 20px rgba(255, 218, 121, 0.7); /* Change glow effect on hover */
+}
 
         .planet {
             position: absolute;
@@ -146,7 +150,7 @@
             background: radial-gradient(circle, #fff000, #ffea00);
             position: absolute;
             top: 30%; 
-            right: 0%; 
+            right: 30%; 
             transform: translate(-50%, -50%);
             border-radius: 50%;
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
@@ -176,19 +180,18 @@
             <div class="sun"></div>
         </div>
 
-        <div class="gallery">
-            <img src="IMG_20240717_203950_513.jpg" style="animation: glow 1.5s infinite alternate; top: 20%; left: 30%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145219_833.jpg" style="animation: glow 1.5s infinite alternate; top: 50%; left: 40%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240722_112807_661.jpg" style="animation: glow 1.5s infinite alternate; top: 40%; left: 60%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240820_175734_159.jpg" style="animation: glow 1.5s infinite alternate; top: 70%; left: 20%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145305_021.jpg" style="animation: glow 1.5s infinite alternate; top: 30%; left: 80%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240813_201217_818.jpg" style="animation: glow 1.5s infinite alternate; top: 10%; left: 10%;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240909_135546.jpg" style="animation: glow 1.5s infinite alternate; top: 60%; left: 50%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145305_021.jpg" style="animation: glow 1.5s infinite alternate; top: 80%; left: 30%;" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240910_111118.jpg" style="animation: glow 1.5s infinite alternate; top: 30%; left: 20%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240915_123456.jpg" style="animation: glow 1.5s infinite alternate; top: 10%; left: 70%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-        </div>
-    </div>
+       <div class="gallery">
+    <img src="IMG_20240717_203950_513.jpg" style="top: 20%; left: 30%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145219_833.jpg" style="top: 50%; left: 40%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240722_112807_661.jpg" style="top: 40%; left: 60%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240820_175734_159.jpg" style="top: 70%; left: 20%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145305_021.jpg" style="top: 30%; left: 80%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240813_201217_818.jpg" style="top: 10%; left: 10%;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240909_135546.jpg" style="top: 60%; left: 50%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145305_021.jpg" style="top: 80%; left: 30%;" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240910_111118.jpg" style="top: 30%; left: 20%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240915_123456.jpg" style="top: 10%; left: 70%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+</div>
 
 
 
