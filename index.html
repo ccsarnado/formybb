@@ -13,18 +13,20 @@
             color: #fff;
             overflow-x: auto;
             background: linear-gradient(to bottom, #091236, #1b1b2f);
-            animation: dayNightCycle 60s infinite ease-in-out;
+            animation: dayNightCycle 120s infinite ease-in-out; /* Slower and smoother transition */
             transition: background 120s ease-in-out;
             position: relative;
         }
 
         @keyframes dayNightCycle {
             0% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Day */
+            25% { background: linear-gradient(to bottom, #7896dc, #fbce82); } /* Afternoon */
             50% { background: linear-gradient(to bottom, #091236, #1b1b2f); } /* Night */
+            75% { background: linear-gradient(to bottom, #7896dc, #fbce82); } /* Morning */
             100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Day */
         }
 
-        /* Starry background using CSS */
+        /* Add twinkling stars */
         body::before {
             content: "";
             position: absolute;
@@ -37,7 +39,6 @@
             z-index: -1;
         }
 
-        /* Add twinkling stars */
         body::after {
             content: "";
             position: absolute;
@@ -61,7 +62,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px 20px; /* Reduced padding */
             background: rgba(0, 0, 0, 0.5);
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
             border-radius: 10px;
@@ -71,13 +72,12 @@
             top: 0;
             z-index: 1000;
         }
-
+        
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 44px;
+            font-size: 32px; /* Reduced font size to shrink the header */
             color: #ffda79;
             text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
-            transition: transform 0.3s ease-in-out;
         }
 
         h1:hover {
@@ -99,7 +99,7 @@
 
         .main {
             text-align: center;
-            padding-top: 120px;
+            padding-top: 90px;
             color: #fff;
         }
 
@@ -111,17 +111,19 @@
         }
 
         .gallery img {
-            max-width: 300px;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
         }
 
+
         .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.7);
+            transform: scale(1.1); /* Image zooms in slightly */
+            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
         }
+
 
         /* Glowing message effect with more beautiful font */
         .message {
@@ -142,12 +144,12 @@
             100% { text-shadow: 0 0 20px #ffda79, 0 0 30px #ffda79; }
         }
 
-        /* Soft glowing, bouncy planets */
+        /* Soft glowing, moving planets */
         .planet {
             position: absolute;
             background: radial-gradient(circle, #ffda79, #f39c12);
             border-radius: 50%;
-            animation: orbit 80s infinite linear, bounce 3s ease-in-out infinite;
+            animation: orbit 80s infinite ease-in-out, bounce 3s ease-in-out infinite;
             box-shadow: 0 0 20px rgba(255, 218, 121, 0.7), 0 0 40px rgba(255, 218, 121, 0.5);
         }
 
@@ -163,6 +165,39 @@
 
         .planet:hover {
             animation-play-state: paused;
+        }
+
+        /* Additional planets with different sizes, orbits, and speeds */
+        .planet1 {
+            top: 50%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            animation-duration: 100s; /* Slower orbit */
+        }
+
+        .planet2 {
+            top: 10%;
+            left: 70%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 60s; /* Faster orbit */
+        }
+
+        .planet3 {
+            top: 75%;
+            left: 40%;
+            width: 100px;
+            height: 100px;
+            animation-duration: 90s;
+        }
+
+        .planet4 {
+            top: 30%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            animation-duration: 120s; /* Slowest orbit */
         }
 
     </style>
@@ -206,12 +241,15 @@
             <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
             <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
             <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
+            <!-- Rest of the gallery images -->
         </div>
     </div>
 
-    <!-- Cute planets with glowing effects and bounce -->
-    <div class="planet" style="top: 50%; left: 30%; width: 120px; height: 120px;"></div>
-    <div class="planet" style="top: 20%; right: 20%; width: 150px; height: 150px;"></div>
+    <!-- Cute planets moving around the page -->
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+    <div class="planet planet4"></div>
 
 </body>
 </html>
