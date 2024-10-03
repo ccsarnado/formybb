@@ -97,12 +97,79 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             position: absolute;
+            animation: glow 1.5s infinite alternate; /* Add glow animation */
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 218, 121, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 218, 121, 1); }
+        }
+
+        @keyframes orbit-image-1 {
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-image-2 {
+            0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-image-3 {
+            0% { transform: rotate(0deg) translateX(210px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(210px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-image-4 {
+            0% { transform: rotate(0deg) translateX(240px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
         }
 
         .planet {
             position: absolute;
             border-radius: 50%;
             opacity: 0.9;
+            animation: glow 1.5s infinite alternate; /* Add glow animation */
+        }
+
+        .planet-1 {
+            width: 160px;
+            height: 160px;
+            animation: orbit-image-1 10s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #ffda79, #ffce00);
+        }
+
+        .planet-2 {
+            width: 140px;
+            height: 140px;
+            animation: orbit-image-2 12s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #c780e8, #6f5b97);
+        }
+
+        .planet-3 {
+            width: 150px;
+            height: 150px;
+            animation: orbit-image-3 15s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #00aaff, #007bb2);
+        }
+
+        .planet-4 {
+            width: 135px;
+            height: 135px;
+            animation: orbit-image-4 20s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #ff7777, #b42d2d);
         }
 
         .sun {
@@ -111,10 +178,11 @@
             background: radial-gradient(circle, #fff000, #ffea00);
             position: absolute;
             top: 30%; 
-            left: 50%;
+            left: 10%; /* Position the sun on the upper left side */
             transform: translate(-50%, -50%); /* Centering the sun */
             border-radius: 50%;
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
+            animation: glow 1.5s infinite alternate; /* Add glow animation to the sun */
         }
     </style>
 </head>
@@ -133,35 +201,59 @@
             <div class="planet planet-2"></div>
             <div class="planet planet-3"></div>
             <div class="planet planet-4"></div>
+            <div class="sun"></div> <!-- Glowing Sun -->
         </div>
 
-        <div class="gallery">
+              <div class="gallery">
             <img src="IMG_20240717_203950_513.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -5s;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240819_145219_833.jpg" style="animation: orbit-image-2 25s linear infinite; animation-delay: -8s;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240722_112807_661.jpg" style="animation: orbit-image-3 25s linear infinite; animation-delay: -10s;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240904_122750.jpg" style="animation: orbit-image-4 25s linear infinite; animation-delay: -12s;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240820_175734_159.jpg" style="animation: orbit-image-4 25s linear infinite; animation-delay: -12s;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240819_145305_021.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -7s;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240813_201217_818.jpg" style="animation: orbit-image-2 25s linear infinite; animation-delay: -3s;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
             <img src="IMG_20240909_135546.jpg" style="animation: orbit-image-3 25s linear infinite; animation-delay: -4s;" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
             <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" style="animation: orbit-image-4 25s linear infinite; animation-delay: -6s;" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
             <img src="BD3F8E6D-71D6-4B92-B3F3-ABEB084B647A.jpeg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -2s;" alt="Moment 23" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240910_150001.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -1s;" alt="Moment 24" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240911_150002.jpg" style="animation: orbit-image-2 25s linear infinite; animation-delay: -1.5s;" alt="Moment 25" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240912_150003.jpg" style="animation: orbit-image-3 25s linear infinite; animation-delay: -2s;" alt="Moment 26" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240913_150004.jpg" style="animation: orbit-image-4 25s linear infinite; animation-delay: -2.5s;" alt="Moment 27" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240914_150005.jpg" style="animation: orbit-image-1 25s linear infinite; animation-delay: -3s;" alt="Moment 28" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240915_150006.jpg" style="animation: orbit-image-2 25s linear infinite; animation-delay: -3.5s;" alt="Moment 29" onclick="openModal(this.src)" loading="lazy">
         </div>
+
     </div>
 
     <script>
-        // Function to open modal with clicked image
+        // Create 1000 stars
+        const starCount = 1000;
+        const starContainer = document.body;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 5 + 1; // Random size between 1 and 6
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * window.innerHeight}px`;
+            star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // Random flicker duration between 0.5 and 1.5 seconds
+            starContainer.appendChild(star);
+        }
+
+        // Open modal function for gallery images
         function openModal(src) {
             const modal = document.createElement('div');
             modal.style.position = 'fixed';
-            modal.style.top = 0;
-            modal.style.left = 0;
+            modal.style.top = '0';
+            modal.style.left = '0';
             modal.style.width = '100%';
             modal.style.height = '100%';
             modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
             modal.style.display = 'flex';
             modal.style.justifyContent = 'center';
             modal.style.alignItems = 'center';
-            modal.style.zIndex = '1000';
+            modal.style.zIndex = '1001';
 
             const img = document.createElement('img');
             img.src = src;
@@ -169,66 +261,13 @@
             img.style.maxHeight = '90%';
             modal.appendChild(img);
 
-            modal.onclick = () => {
+            modal.onclick = function() {
                 document.body.removeChild(modal);
             };
 
             document.body.appendChild(modal);
         }
-
-        // Create planets with random colors and orbits
-        const colors = ['#ffda79', '#8a2be2', '#00ff7f', '#ff4500', '#ffd700'];
-
-        function createPlanet(className) {
-            const planet = document.querySelector(`.${className}`);
-            const size = Math.random() * 50 + 30; // random size between 30 and 80px
-            const orbitRadius = Math.random() * 300 + 200; // random orbit radius
-            const orbitSpeed = Math.random() * 10 + 5; // random speed between 5s and 15s
-            const angle = Math.random() * 360; // random angle for initial position
-            const x = orbitRadius * Math.cos(angle * Math.PI / 180);
-            const y = orbitRadius * Math.sin(angle * Math.PI / 180);
-
-            planet.style.width = `${size}px`;
-            planet.style.height = `${size}px`;
-            planet.style.background = colors[Math.floor(Math.random() * colors.length)];
-            planet.style.left = `calc(50% + ${x}px)`;
-            planet.style.top = `calc(50% + ${y}px)`;
-            planet.style.animation = `orbit ${orbitSpeed}s linear infinite`;
-
-            // Animation to orbit the planet
-            const keyframes = `
-                @keyframes orbit {
-                    0% { transform: rotate(0deg) translateX(${orbitRadius}px) rotate(0deg); }
-                    100% { transform: rotate(360deg) translateX(${orbitRadius}px) rotate(-360deg); }
-                }
-            `;
-            const styleSheet = document.createElement("style");
-            styleSheet.type = "text/css";
-            styleSheet.innerText = keyframes;
-            document.head.appendChild(styleSheet);
-        }
-
-        // Create planets
-        createPlanet('planet-1');
-        createPlanet('planet-2');
-        createPlanet('planet-3');
-        createPlanet('planet-4');
-
-        // Create stars
-        const starCount = 100;
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            const size = Math.random() * 3 + 1; // random size between 1px and 4px
-            const posX = Math.random() * window.innerWidth; // random x position
-            const posY = Math.random() * window.innerHeight; // random y position
-
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.left = `${posX}px`;
-            star.style.top = `${posY}px`;
-            document.body.appendChild(star);
-        }
     </script>
 </body>
 </html>
+
