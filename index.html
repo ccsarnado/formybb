@@ -249,27 +249,27 @@
         </div>
 
 <div class="gallery">
-    <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" loading="lazy">
-    <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" loading="lazy">
-    <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" loading="lazy">
-    <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" loading="lazy">
-    <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" loading="lazy">
-    <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" loading="lazy">
-    <img src="IMG_20240904_122750.jpg" alt="Moment 7" loading="lazy">
-    <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" loading="lazy">
-    <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" loading="lazy">  
-    <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" loading="lazy">
-    <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" loading="lazy">
-    <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" loading="lazy">
-    <img src="IMG_20240904_224615.jpg" alt="Moment 13" loading="lazy">
-    <img src="IMG_20240907_144440.jpg" alt="Moment 14" loading="lazy">
-    <img src="IMG_20240909_135523.jpg" alt="Moment 15" loading="lazy">
-    <img src="IMG_20240909_135546.jpg" alt="Moment 16" loading="lazy">
-    <img src="IMG_20240928_130113.jpg" alt="Moment 17" loading="lazy">
-    <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" loading="lazy">
-    <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" loading="lazy">
-    <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" loading="lazy">
-    <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" loading="lazy">
+    <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
+    <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240909_135546.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
+    <img src="IMG_20240928_130113.jpg" alt="Moment 17" onclick="openModal(this.src)" loading="lazy">
+    <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
+    <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
+    <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
+    <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
 </div>
 
     </div>
@@ -281,7 +281,33 @@
     <div class="planet planet-4"></div>
     <div class="sun"></div>
 
+            <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
     <script>
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "block"; // Show the modal
+            modalImg.src = src; // Set the source of the modal image
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Hide the modal
+        }
+
+        // Close the modal when clicking anywhere outside of the image
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
         // Generate random stars
         const starField = document.body;
         for (let i = 0; i < 500; i++) {
