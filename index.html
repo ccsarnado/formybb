@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Moments - Space Edition</title>
+    <title>My Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,25 +12,34 @@
             padding: 0;
             color: #fff;
             overflow: auto; /* Hide scroll to make it feel like space */
-            background: linear-gradient(to bottom, #091236, #1b1b2f);
-            animation: dayNightCycle 120s infinite; /* Extended duration for smoother transition */
+            background-color: #0f1928; /* Static dark background */
+            position: relative; /* For absolute positioning of stars */
         }
 
-        @keyframes dayNightCycle {
-            0% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); }
-            8% { background: linear-gradient(to bottom, #c1d8f3, #f7d9a3); }
-            16% { background: linear-gradient(to bottom, #d0e3fc, #f8d99c); }
-            25% { background: linear-gradient(to bottom, #e3e5ff, #f8f1d8); }
-            33% { background: linear-gradient(to bottom, #f7f9ff, #f9e8c4); }
-            41% { background: linear-gradient(to bottom, #f8f1d8, #1b1b2f); }
-            50% { background: linear-gradient(to bottom, #1b1b2f, #0f1928); }
-            58% { background: linear-gradient(to bottom, #0e1f4b, #0b1625); }
-            66% { background: linear-gradient(to bottom, #191e3c, #0f1928); }
-            75% { background: linear-gradient(to bottom, #091236, #1b1b2f); }
-            83% { background: linear-gradient(to bottom, #0a1c3a, #0b1625); }
-            91% { background: linear-gradient(to bottom, #0e1f4b, #0f1928); }
-            100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); }
+        /* Flickering stars */
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: flicker 1.5s infinite alternate;
         }
+
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            100% { opacity: 0.2; }
+        }
+
+        /* Generate stars */
+        .star:nth-child(1) { top: 20%; left: 10%; width: 3px; height: 3px; }
+        .star:nth-child(2) { top: 30%; left: 50%; width: 2px; height: 2px; }
+        .star:nth-child(3) { top: 40%; left: 80%; width: 4px; height: 4px; }
+        .star:nth-child(4) { top: 50%; left: 25%; width: 2px; height: 2px; }
+        .star:nth-child(5) { top: 60%; left: 70%; width: 3px; height: 3px; }
+        .star:nth-child(6) { top: 80%; left: 15%; width: 4px; height: 4px; }
+        .star:nth-child(7) { top: 90%; left: 55%; width: 3px; height: 3px; }
+        .star:nth-child(8) { top: 10%; left: 30%; width: 2px; height: 2px; }
+        .star:nth-child(9) { top: 70%; left: 40%; width: 3px; height: 3px; }
+        .star:nth-child(10) { top: 80%; left: 85%; width: 4px; height: 4px; }
 
         header {
             display: flex;
@@ -92,50 +101,6 @@
             transform: scale(1.1); /* Image zooms in slightly */
             box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
         }
-
-        /* Planet styles */
-        .planet {
-            position: absolute;
-            width: 100px; /* Base size for planets */
-            height: 100px;
-            border-radius: 50%;
-            animation: orbit 60s infinite linear; /* Orbiting animation */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Glow effect */
-        }
-
-        .planet1 {
-            background: radial-gradient(circle, #ffda79, #f39c12); /* Yellow */
-            animation-duration: 80s; /* Slower orbit */
-            top: 60%; /* Position in the lower part */
-            left: 10%; /* Position more to the left */
-        }
-
-        .planet2 {
-            background: radial-gradient(circle, #6a5acd, #4b0082); /* Purple */
-            animation-duration: 70s; /* Slower orbit */
-            top: 20%; /* Position in the upper part */
-            right: 15%; /* Position more to the right */
-        }
-
-        .planet3 {
-            background: radial-gradient(circle, #1e90ff, #00bfff); /* Blue */
-            animation-duration: 90s; /* Slower orbit */
-            top: 30%; /* Position in the upper part */
-            left: 50%; /* Center horizontally */
-        }
-
-        .planet4 {
-            background: radial-gradient(circle, #ff69b4, #ff1493); /* Pink */
-            animation-duration: 75s; /* Slower orbit */
-            top: 70%; /* Position in the lower part */
-            right: 25%; /* Position more to the right */
-        }
-
-        /* Planet Orbit Keyframes */
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-        }
     </style>
 </head>
 <body>
@@ -143,16 +108,15 @@
     <header>
         <h1>Our Moments</h1>
         <nav class="nav-links">
-            <a href="OurMoments">Home</a>
-            <a href="AboutUs">About Us</a>
-            <a href="Gallery">Gallery</a>
-            <a href="Messages">Messages</a>
+            <a href="Gallery">My Home Mwehehehe</a>
+            <a href="AboutUs">About Us Baby</a>
+            <a href="Messages">Uhh Messages Ig</a>
         </nav>
     </header>
 
     <div class="main">
-        <div class="message">"Hey Lian, every moment with you feels like a beautiful dream! 🌌"</div>
-        <div class="message">"Together is my favorite place to be! 🚀"</div>
+        <div class="message">"Hey Lian, baby, hon, hubby, every moment with you feels like everything to me"</div>
+        <div class="message">"Together is my favorite place to be, my home"</div>
 
         <div class="gallery">
             <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1">
@@ -166,15 +130,29 @@
             <img src="IMG_20240819_145219_833.jpg" alt="Moment 9">
             <img src="IMG_20240819_145305_021.jpg" alt="Moment 10">
             <img src="IMG_20240819_145322_858.jpg" alt="Moment 11">
-            <img src="IMG_20240904_093052_465.jpg" alt="Moment 12">
-            <img src="IMG_20240909_132224_670.jpg" alt="Moment 13">
+            <img src="IMG_20240904_122750.jpg" alt="Moment 12">
+            <img src="IMG_20240904_224615.jpg" alt="Moment 13">
+            <img src="IMG_20240907_144440.jpg" alt="Moment 14">
+            <img src="IMG_20240909_135523.jpg" alt="Moment 15">
+            <img src="IMG_20240909_135546.jpg" alt="Moment 16">
+            <img src="IMG_20240928_130113.jpg" alt="Moment 17">
+            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18">
+            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
+            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
+            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
         </div>
 
-        <!-- Add planets floating in space -->
-        <div class="planet planet1"></div>
-        <div class="planet planet2"></div>
-        <div class="planet planet3"></div>
-        <div class="planet planet4"></div>
+        <!-- Generate stars -->
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
     </div>
 </body>
 </html>
