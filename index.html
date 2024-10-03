@@ -4,72 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Moments - Space Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    overflow: auto; /* Hide scroll to make it feel like space */
-    background: linear-gradient(to bottom, #091236, #1b1b2f); /* Darker space-like colors */
-    animation: dayNightCycle 60s infinite; /* Smooth background transition from day to night */
-}
-
-@keyframes dayNightCycle {
-    0% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Early Morning */
-    8% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Morning Light */
-    16% { background: linear-gradient(to bottom, #d0e3fc, #f8d99c); } /* Mid Morning */
-    25% { background: linear-gradient(to bottom, #c1d8f3, #f7d9a3); } /* Late Morning */
-    33% { background: linear-gradient(to bottom, #e3e5ff, #f8f1d8); } /* Early Afternoon */
-    41% { background: linear-gradient(to bottom, #f7f9ff, #f9e8c4); } /* Afternoon */
-    50% { background: linear-gradient(to bottom, #f8f1d8, #091236); } /* Sunset */
-    58% { background: linear-gradient(to bottom, #1b1b2f, #091236); } /* Twilight */
-    66% { background: linear-gradient(to bottom, #191e3c, #1b1b2f); } /* Night */
-    75% { background: linear-gradient(to bottom, #091236, #1b1b2f); } /* Deep Night */
-    83% { background: linear-gradient(to bottom, #0a1c3a, #0b1625); } /* Pre-Dawn */
-    91% { background: linear-gradient(to bottom, #0e1f4b, #0f1928); } /* Early Dawn */
-    100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); } /* Back to Early Morning */
-}
-
-        /* Add twinkling stars */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.3;
-            z-index: -1;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow: hidden; /* Hide scroll to make it feel like space */
+            background: linear-gradient(to bottom, #091236, #1b1b2f);
+            animation: dayNightCycle 120s infinite; /* Extended duration for smoother transition */
         }
 
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://www.transparenttextures.com/patterns/tiny-grid.png');
-            animation: twinkle 3s infinite ease-in-out;
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 0.1; }
+        @keyframes dayNightCycle {
+            0% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); }
+            8% { background: linear-gradient(to bottom, #c1d8f3, #f7d9a3); }
+            16% { background: linear-gradient(to bottom, #d0e3fc, #f8d99c); }
+            25% { background: linear-gradient(to bottom, #e3e5ff, #f8f1d8); }
+            33% { background: linear-gradient(to bottom, #f7f9ff, #f9e8c4); }
+            41% { background: linear-gradient(to bottom, #f8f1d8, #1b1b2f); }
+            50% { background: linear-gradient(to bottom, #1b1b2f, #0f1928); }
+            58% { background: linear-gradient(to bottom, #0e1f4b, #0b1625); }
+            66% { background: linear-gradient(to bottom, #191e3c, #0f1928); }
+            75% { background: linear-gradient(to bottom, #091236, #1b1b2f); }
+            83% { background: linear-gradient(to bottom, #0a1c3a, #0b1625); }
+            91% { background: linear-gradient(to bottom, #0e1f4b, #0f1928); }
+            100% { background: linear-gradient(to bottom, #a1c2f1, #f7d9a3); }
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px; /* Reduced padding */
-            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
             border-radius: 10px;
             backdrop-filter: blur(10px);
@@ -78,16 +46,11 @@ body {
             top: 0;
             z-index: 1000;
         }
-        
+
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px; /* Reduced font size to shrink the header */
+            font-size: 40px;
             color: #ffda79;
             text-shadow: 0 0 10px #ffda79, 0 0 20px #ffda79;
-        }
-
-        h1:hover {
-            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -95,7 +58,7 @@ body {
             text-decoration: none;
             font-size: 18px;
             padding: 10px 15px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
@@ -105,7 +68,7 @@ body {
 
         .main {
             text-align: center;
-            padding-top: 16px;
+            padding-top: 160px; /* Increased padding to avoid overlap */
             color: #fff;
         }
 
@@ -116,84 +79,63 @@ body {
             gap: 20px;
         }
 
-      .gallery img {
-          max-width: 300px; /* Maximum width */
-          height: auto; /* Maintain aspect ratio */
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
-          transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
-      }
-
+        .gallery img {
+            max-width: 300px; /* Maximum width */
+            max-height: 300px; /* Maximum height to prevent stretching */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+        }
 
         .gallery img:hover {
             transform: scale(1.1); /* Image zooms in slightly */
             box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
         }
 
-
-        /* Glowing message effect with more beautiful font */
-        .message {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #ffda79;
-            text-shadow: 0 0 8px #ffda79, 0 0 12px #ffda79;
-            animation: glowMessage 1.5s ease-in-out infinite alternate;
-            transition: transform 0.3s ease-in-out;
+        /* Planet styles */
+        .planet {
+            position: absolute;
+            width: 100px; /* Base size for planets */
+            height: 100px;
+            border-radius: 50%;
+            animation: orbit 60s infinite linear; /* Orbiting animation */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Glow effect */
         }
 
-        .message:hover {
-            transform: scale(1.05);
+        .planet1 {
+            background: radial-gradient(circle, #ffda79, #f39c12); /* Yellow */
+            animation-duration: 80s; /* Slower orbit */
+            top: 60%; /* Position in the lower part */
+            left: 10%; /* Position more to the left */
         }
 
-        @keyframes glowMessage {
-            0% { text-shadow: 0 0 10px #ffda79; }
-            100% { text-shadow: 0 0 20px #ffda79, 0 0 30px #ffda79; }
+        .planet2 {
+            background: radial-gradient(circle, #6a5acd, #4b0082); /* Purple */
+            animation-duration: 70s; /* Slower orbit */
+            top: 20%; /* Position in the upper part */
+            right: 15%; /* Position more to the right */
         }
 
-        /* Soft glowing, moving planets */
- .planet {
-    position: absolute;
-    width: 100px; /* Base size for planets */
-    height: 100px;
-    border-radius: 50%;
-    animation: orbit 60s infinite linear; /* Orbiting animation */
-}
-
-@keyframes orbit {
-    0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
-}
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .planet3 {
+            background: radial-gradient(circle, #1e90ff, #00bfff); /* Blue */
+            animation-duration: 90s; /* Slower orbit */
+            top: 30%; /* Position in the upper part */
+            left: 50%; /* Center horizontally */
         }
 
-        .planet:hover {
-            animation-play-state: paused;
+        .planet4 {
+            background: radial-gradient(circle, #ff69b4, #ff1493); /* Pink */
+            animation-duration: 75s; /* Slower orbit */
+            top: 70%; /* Position in the lower part */
+            right: 25%; /* Position more to the right */
         }
 
-        /* Additional planets with different sizes, orbits, and speeds */
-       .planet1 {
-    background: radial-gradient(circle, #ffda79, #f39c12); /* Yellow */
-    animation-duration: 80s; /* Slower orbit */
-}
-
-.planet2 {
-    background: radial-gradient(circle, #6a5acd, #4b0082); /* Purple */
-    animation-duration: 70s; /* Slower orbit */
-}
-
-.planet3 {
-    background: radial-gradient(circle, #1e90ff, #00bfff); /* Blue */
-    animation-duration: 90s; /* Slower orbit */
-}
-
-.planet4 {
-    background: radial-gradient(circle, #ff69b4, #ff1493); /* Pink */
-    animation-duration: 75s; /* Slower orbit */
-}
-
+        /* Planet Orbit Keyframes */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+        }
     </style>
 </head>
 <body>
@@ -213,7 +155,6 @@ body {
         <div class="message">"Together is my favorite place to be! 🚀"</div>
 
         <div class="gallery">
-            <!-- All the images -->
             <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1">
             <img src="IMG_20240530_111356_771.jpg" alt="Moment 2">
             <img src="IMG_20240717_203950_513.jpg" alt="Moment 3">
@@ -225,27 +166,15 @@ body {
             <img src="IMG_20240819_145219_833.jpg" alt="Moment 9">
             <img src="IMG_20240819_145305_021.jpg" alt="Moment 10">
             <img src="IMG_20240819_145322_858.jpg" alt="Moment 11">
-            <img src="IMG_20240904_122750.jpg" alt="Moment 12">
-            <img src="IMG_20240904_224615.jpg" alt="Moment 13">
-            <img src="IMG_20240907_144440.jpg" alt="Moment 14">
-            <img src="IMG_20240909_135523.jpg" alt="Moment 15">
-            <img src="IMG_20240909_135546.jpg" alt="Moment 16">
-            <img src="IMG_20240928_130113.jpg" alt="Moment 17">
-            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18">
-            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19">
-            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20">
-            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21">
-            <!-- Rest of the gallery images -->
+            <img src="IMG_20240904_093052_465.jpg" alt="Moment 12">
+            <img src="IMG_20240909_132224_670.jpg" alt="Moment 13">
         </div>
+
+        <!-- Add planets floating in space -->
+        <div class="planet planet1"></div>
+        <div class="planet planet2"></div>
+        <div class="planet planet3"></div>
+        <div class="planet planet4"></div>
     </div>
-
-    <!-- Cute planets moving around the page -->
-<!-- Add planets floating in space -->
-<div class="planet planet1" style="top: 50%; left: 30%;"></div>
-<div class="planet planet2" style="top: 20%; right: 20%;"></div>
-<div class="planet planet3" style="top: 70%; left: 50%;"></div>
-<div class="planet planet4" style="top: 10%; left: 70%;"></div>
-
-
 </body>
 </html>
