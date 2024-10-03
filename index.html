@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             color: #fff;
-            overflow: auto; /* Hides scrollbars */
+            overflow: hidden; /* Hides scrollbars */
             background-color: #0f1928; /* Static dark background */
             position: relative; /* For absolute positioning of stars */
         }
@@ -28,20 +28,6 @@
         @keyframes flicker {
             0% { opacity: 0.8; }
             100% { opacity: 0.2; }
-        }
-
-        /* Generate stars */
-        .star:nth-child(n) { /* Creating 1000 stars */
-            top: calc(100% * var(--y));
-            left: calc(100% * var(--x));
-            width: var(--size);
-            height: var(--size);
-            animation: twinkle var(--twinkle-duration) infinite alternate;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.8; }
-            100% { opacity: 0; }
         }
 
         /* Header styles */
@@ -70,6 +56,7 @@
             text-align: center;
             padding-top: 160px; /* Increased padding to avoid overlap */
             color: #fff;
+            position: relative; /* For image positioning */
         }
 
         /* Message Box Styles */
@@ -82,10 +69,11 @@
             max-width: 800px; /* Increased maximum width */
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            z-index: 10; /* Keep above images */
         }
 
         .message-box:hover {
-            transform: scale(1.1); /* Image zooms in slightly */
+            transform: scale(1.1); /* Box zooms in slightly */
             box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
         }
 
@@ -100,8 +88,13 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            position: relative; /* Keep the gallery in its relative position */
-            z-index: 2; /* Ensure the gallery is above other elements */
+            position: absolute; /* Allows absolute positioning */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1; /* Ensure the gallery is below the message box */
+            pointer-events: none; /* Prevent interaction */
         }
 
         .gallery img {
@@ -111,6 +104,17 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            pointer-events: auto; /* Allow interaction with images */
+            animation: glowing 2s infinite alternate; /* Animation for glowing */
+        }
+
+        @keyframes glowing {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 218, 121, 1);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 218, 121, 1);
+            }
         }
 
         .gallery img:hover {
@@ -223,89 +227,78 @@
             0% { transform: rotate(0deg) translateX(350px) rotate(0deg); }
             100% { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
         }
-
     </style>
 </head>
 <body>
-    <header>
-        <h1>Happy 6th Monthsary to us, baby <3</h1>
-    </header>
 
-    <div class="main">
-        <div class="message-box">
-            <p class="message">Love you always! 💖</p>
-        </div>
+<header>
+    <h1>Happy 6th Monthsary to us, baby <3</h1>
+</header>
 
-        <div class="gallery">
-    <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
-    <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240909_135546.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240928_130113.jpg" alt="Moment 17" onclick="openModal(this.src)" loading="lazy">
-    <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
-    <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
-    <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
-    <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
-        </div>
-
-        <!-- Modal for displaying images -->
-        <div class="modal" id="myModal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="img01">
-        </div>
-
-        <!-- Generate 1000 stars -->
-        <script>
-            for (let i = 0; i < 1000; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Set random position and size for each star
-                const x = Math.random();
-                const y = Math.random();
-                const size = Math.random() * 3 + 1 + 'px'; // Size between 1px and 4px
-                const twinkleDuration = Math.random() * 2 + 1 + 's'; // Twinkle duration between 1s and 3s
-                
-                // Use CSS variables to set values
-                star.style.setProperty('--x', x);
-                star.style.setProperty('--y', y);
-                star.style.setProperty('--size', size);
-                star.style.setProperty('--twinkle-duration', twinkleDuration);
-
-                document.body.appendChild(star);
-            }
-
-            function openModal(img) {
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                modal.style.display = "block";
-                modalImg.src = img.src;
-            }
-
-            function closeModal() {
-                const modal = document.getElementById("myModal");
-                modal.style.display = "none";
-            }
-        </script>
+<div class="main">
+    <div class="message-box">
+        <p class="message">To my Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟🌌💫. Here’s to many more months and adventures together! 🥹❤️
+    </p>
     </div>
 
-    <!-- Planets -->
+        <div class="gallery">
+            <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
+            <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240909_135546.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
+            <img src="IMG_20240928_130113.jpg" alt="Moment 17" onclick="openModal(this.src)" loading="lazy">
+            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
+            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
+            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
+            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
+        </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-image" src="" alt="Modal Image">
+    </div>
+
     <div class="planet planet-1"></div>
     <div class="planet planet-2"></div>
     <div class="planet planet-3"></div>
     <div class="planet planet-4"></div>
     <div class="sun"></div>
+</div>
+
+<script>
+    function openModal(image) {
+        document.getElementById('modal-image').src = image.src;
+        document.getElementById('modal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = "none";
+    }
+
+    // Randomly position stars
+    for (let i = 0; i < 1000; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 3 + 1; // Random size between 1 and 4px
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        document.body.appendChild(star);
+    }
+</script>
+
 </body>
 </html>
