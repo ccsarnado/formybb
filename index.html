@@ -37,6 +37,7 @@
             width: var(--size);
             height: var(--size);
             animation: twinkle var(--twinkle-duration) infinite alternate;
+        }
 
         /* Header styles */
         header {
@@ -222,32 +223,30 @@
         }
 
         @keyframes orbit-2 {
-            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-        }
-
-        @keyframes orbit-3 {
             0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
             100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
         }
 
+        @keyframes orbit-3 {
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
         @keyframes orbit-4 {
-            0% { transform: rotate(0deg) translateX(350px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Happy 6th Monthsary to us, baby <3</h1>
+    </header>
 
-<header>
-    <h1>Happy 6th Monthsary to us, baby <3</h1>
-</header>
-
-<div class="main">
-    <div class="message-box">
-        <p class="message">To my Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟🌌💫. Here’s to many more months and adventures together! 🥹❤️
-    </p>
-    </div>
+    <div class="main">
+        <div class="message-box">
+            <p class="message">To my Lian, my pookie, my baby, my hon, my hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟🌌💫. Here’s to many more months and adventures together🥹❤️</p>
+        </div>
 
         <div class="gallery">
             <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
@@ -272,50 +271,49 @@
             <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
             <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
         </div>
-
-    <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modal-image" src="" alt="Modal Image">
     </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Star generation
+        const starCount = 1000;
+        const starContainer = document.body; // Append stars to body
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            // Set random position, size, and twinkle duration for each star
+            star.style.setProperty('--x', Math.random());
+            star.style.setProperty('--y', Math.random());
+            star.style.setProperty('--size', Math.random() * 3 + 'px'); // Size between 0px and 3px
+            star.style.setProperty('--twinkle-duration', Math.random() * 2 + 1 + 's'); // Twinkle duration between 1s and 3s
+            starContainer.appendChild(star);
+        }
+    </script>
+    
+    <!-- Planet elements -->
     <div class="planet planet-1"></div>
     <div class="planet planet-2"></div>
     <div class="planet planet-3"></div>
     <div class="planet planet-4"></div>
     <div class="sun"></div>
-</div>
-
-<script>
-    function openModal(image) {
-        document.getElementById('modal-image').src = image.src;
-        document.getElementById('modal').style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = "none";
-    }
-
-   <!-- Generate 1000 stars -->
-        <script>
-            for (let i = 0; i < 1000; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Set random position and size for each star
-                const x = Math.random();
-                const y = Math.random();
-                const size = Math.random() * 3 + 1 + 'px'; // Size between 1px and 4px
-                const twinkleDuration = Math.random() * 2 + 1 + 's'; // Twinkle duration between 1s and 3s
-                
-                // Use CSS variables to set values
-                star.style.setProperty('--x', x);
-                star.style.setProperty('--y', y);
-                star.style.setProperty('--size', size);
-                star.style.setProperty('--twinkle-duration', twinkleDuration);
-
-                document.body.appendChild(star);
-            }
-</script>
-
 </body>
 </html>
