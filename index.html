@@ -8,49 +8,49 @@
     <link rel="icon" href="heart_icon.png" type="image/png">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #eaeaea;
-            overflow: auto;
-            height: 100vh;
+            color: #4b4b4b;
+            overflow-x: hidden;
+            background-color: #fff5f8;
+            height: 100%;
             position: relative;
         }
 
+        /* Background and Hearts Animation */
         .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #ff9db9, #ffb6c1);
+            background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
             z-index: 0;
-            animation: gradient 15s ease infinite alternate;
+            animation: gradient 12s ease infinite alternate;
         }
 
         @keyframes gradient {
             0% {
-                background: linear-gradient(135deg, #ff9db9, #ffb6c1);
+                background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
             }
             100% {
-                background: linear-gradient(135deg, #f7a8a8, #fcb6d1);
+                background: linear-gradient(135deg, #f7a8a8, #ffdee8);
             }
         }
 
         .heart {
             position: absolute;
-            width: 50px;
-            height: 50px;
             background-color: pink;
-            animation: float 6s ease-in-out infinite;
+            animation: float 7s ease-in-out infinite, move 5s linear infinite;
+            border-radius: 50%;
+            opacity: 0.8;
         }
 
         .heart::before,
         .heart::after {
             content: "";
             position: absolute;
-            width: 50px;
-            height: 50px;
             background-color: pink;
             border-radius: 50%;
         }
@@ -70,39 +70,103 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
             100% {
                 transform: translateY(0);
             }
         }
 
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
         /* Position hearts randomly */
         .heart:nth-child(1) {
+            width: 80px;
+            height: 80px;
             top: 10%;
-            left: 20%;
+            left: 5%;
+            animation-duration: 9s;
         }
 
         .heart:nth-child(2) {
-            top: 40%;
-            left: 50%;
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 20%;
+            animation-duration: 10s;
         }
 
         .heart:nth-child(3) {
-            top: 70%;
-            left: 80%;
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 70%;
+            animation-duration: 11s;
         }
 
         .heart:nth-child(4) {
-            top: 30%;
+            width: 120px;
+            height: 120px;
+            top: 80%;
             left: 10%;
+            animation-duration: 14s;
         }
 
         .heart:nth-child(5) {
-            top: 80%;
+            width: 90px;
+            height: 90px;
+            top: 20%;
+            left: 80%;
+            animation-duration: 12s;
+        }
+
+        .heart:nth-child(6) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 50%;
+            animation-duration: 15s;
+        }
+
+        /* Cat Styles */
+        .cat {
+            position: absolute;
+            z-index: 2;
+            animation: bounce 4s ease-in-out infinite;
+        }
+
+        .cat:nth-child(1) {
+            top: 5%;
+            left: 15%;
+        }
+
+        .cat:nth-child(2) {
+            top: 50%;
             left: 60%;
         }
 
+        .cat:nth-child(3) {
+            top: 70%;
+            left: 10%;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Page Styling */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -114,17 +178,18 @@
         h1 {
             color: #ff69b4;
             text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(255, 0, 150, 0.3);
         }
 
         .navbar {
             font-weight: 700;
             display: flex;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 25px;
             backdrop-filter: blur(10px);
             margin-bottom: 30px;
         }
@@ -133,6 +198,7 @@
             color: #ff69b4;
             text-decoration: none;
             margin: 0 15px;
+            font-size: 1.2em;
             transition: color 0.3s;
         }
 
@@ -140,42 +206,63 @@
             color: #ff1493;
         }
 
-        /* Photo Gallery */
+        /* Photo Gallery with Sliding Animation */
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .gallery-item.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .gallery img {
-            width: 200px;
+            width: 300px;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
+        .caption {
+            font-size: 1.3em;
+            color: #ff1493;
+            margin-top: 15px;
+            text-align: center;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 50px;
             color: #ff69b4;
         }
     </style>
 </head>
 
 <body>
+    <!-- Hearts Background -->
     <div class="background">
         <div class="heart"></div>
         <div class="heart"></div>
         <div class="heart"></div>
         <div class="heart"></div>
         <div class="heart"></div>
+        <div class="heart"></div>
     </div>
+
+    <!-- Cute Cats -->
+    <img src="cat1.png" class="cat">
+    <img src="cat2.png" class="cat">
+    <img src="cat3.png" class="cat">
 
     <div class="container">
         <h1>Happy 6th Monthsary, Lian! ❤️</h1>
@@ -185,16 +272,44 @@
 
         <!-- Photo Gallery Section -->
         <div id="gallery" class="gallery">
-            <img src="pic1.jpg" alt="Lian and You">
-            <img src="pic2.jpg" alt="Memorable Moment">
-            <img src="pic3.jpg" alt="Anniversary Celebration">
-            <!-- Add more images as needed -->
+            <div class="gallery-item">
+                <img src="pic1.jpg" alt="Lian and You">
+                <div class="caption">"Our first picture together! 💖"</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic2.jpg" alt="Memorable Moment">
+                <div class="caption">"Such a memorable day, isn't it?"</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic3.jpg" alt="Anniversary Celebration">
+                <div class="caption">"Happy Anniversary to us! 🎉"</div>
+            </div>
+            <!-- Add more images and captions as needed -->
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Made with Love by [Your Name]</p>
     </footer>
+
+    <!-- JavaScript for Sliding and Scrolling Effects -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            galleryItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
 </body>
 
 </html>
