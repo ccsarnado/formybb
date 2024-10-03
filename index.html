@@ -66,13 +66,7 @@
             max-width: 800px;
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
             position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
             z-index: 10;
-        }
-
-        .message-box:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1);
         }
 
         .message {
@@ -91,66 +85,63 @@
             overflow: hidden;
         }
 
-    .gallery img {
-    max-width: 100px;
-    max-height: 100px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 218, 121, 0.7); /* Soft radiance */
-    position: absolute;
-    animation: glow 1.5s infinite alternate, moveImage 10s infinite alternate;
-}
+        .gallery img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 218, 121, 0.7);
+            position: absolute;
+            animation: glow 1.5s infinite alternate;
+        }
 
-@keyframes moveImage {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(calc(30vw - 15%), calc(10vh - 5%)); }
-    50% { transform: translate(calc(50vw - 25%), calc(20vh - 10%)); }
-    75% { transform: translate(calc(70vw - 35%), calc(15vh - 5%)); }
-    100% { transform: translate(calc(40vw - 20%), calc(25vh - 10%)); }
-}
-        
-.gallery img:hover {
-    box-shadow: 0 0 20px rgba(255, 218, 121, 0.7); /* Change glow effect on hover */
-}
+        @keyframes moveImage {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(30vw - 15%), calc(10vh - 5%)); }
+            50% { transform: translate(calc(50vw - 25%), calc(20vh - 10%)); }
+            75% { transform: translate(calc(70vw - 35%), calc(15vh - 5%)); }
+            100% { transform: translate(calc(40vw - 20%), calc(25vh - 10%)); }
+        }
 
-           .planet {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.8;
-    box-shadow: 0 0 20px rgba(255, 218, 121, 0.7); /* Soft radiance */
-    animation: glow 1.5s infinite alternate, move 10s infinite alternate;
-}
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            box-shadow: 0 0 20px rgba(255, 218, 121, 0.7);
+            animation: glow 1.5s infinite alternate, move 10s infinite alternate;
+        }
 
-@keyframes move {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(calc(30vw - 15%), calc(20vh - 15%)); }
-    50% { transform: translate(calc(50vw - 25%), calc(10vh - 10%)); }
-    75% { transform: translate(calc(70vw - 35%), calc(30vh - 20%)); }
-    100% { transform: translate(calc(40vw - 20%), calc(20vh - 15%)); }
-}
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(30vw - 15%), calc(20vh - 15%)); }
+            50% { transform: translate(calc(50vw - 25%), calc(10vh - 10%)); }
+            75% { transform: translate(calc(70vw - 35%), calc(30vh - 20%)); }
+            100% { transform: translate(calc(40vw - 20%), calc(20vh - 15%)); }
+        }
 
-.planet-1 {
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle, #ffda79, #ffce00);
-}
+        .planet-1 {
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, #ffda79, #ffce00);
+        }
 
-.planet-2 {
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, #c0c0c0, #a8a8a8); /* Silver planet */
-}
+        .planet-2 {
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, #c0c0c0, #a8a8a8);
+        }
 
-.planet-3 {
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, #00aaff, #007bb2);
-}
+        .planet-3 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #00aaff, #007bb2);
+        }
 
-.planet-4 {
-    width: 135px;
-    height: 135px;
-    background: radial-gradient(circle, #ff7777, #b42d2d);
-}
+        .planet-4 {
+            width: 135px;
+            height: 135px;
+            background: radial-gradient(circle, #ff7777, #b42d2d);
+        }
+
         .sun {
             width: 350px; 
             height: 350px; 
@@ -164,10 +155,6 @@
             animation: glow 1.5s infinite alternate;
         }
 
-        @keyframes move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(calc(50vw - 50%), calc(50vh - 50%)); }
-        }
     </style>
 </head>
 <body>
@@ -179,64 +166,62 @@
         <div class="message-box">
             <div class="message">To my Lian, baby, hon, hubby 🌟💖, every moment with you feels like everything to me. Just like the stars in our own galaxy 🌌✨, you light up my life in ways I've never imagined. I’m the Gemini ♊️ to your Aries ♈️❤️, and together we create the perfect constellation 🌠🌌. Together is my favorite place to be, my home 🏡🌍💞, just like Earth among the stars and planets 🌏✨. Celebrating our six months feels like completing the stars of our constellation 🌟🌌💫. Here’s to many more months and adventures together! 🥹❤️
             </div>
-
-            <div class="planet planet-1"></div>
-            <div class="planet planet-2"></div>
-            <div class="planet planet-3"></div>
-            <div class="planet planet-4"></div>
-            <div class="sun"></div>
         </div>
 
-       <div class="gallery">
-    <img src="IMG_20240717_203950_513.jpg" style="top: 10%; left: 30%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145219_833.jpg" style="top: 5%; left: 40%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240722_112807_661.jpg" style="top: 3%; left: 60%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240820_175734_159.jpg" style="top: 11%; left: 20%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145305_021.jpg" style="top: 9%; left: 80%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240813_201217_818.jpg" style="top: 4%; left: 10%;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240909_135546.jpg" style="top: 2%; left: 50%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240819_145305_021.jpg" style="top: 8%; left: 30%;" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240910_111118.jpg" style="top: 7%; left: 20%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-    <img src="IMG_20240915_123456.jpg" style="top: 6%; left: 70%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-</div>
+        <div class="planet planet-1"></div>
+        <div class="planet planet-2"></div>
+        <div class="planet planet-3"></div>
+        <div class="planet planet-4"></div>
+        <div class="sun"></div>
+    </div>
 
+    <div class="gallery">
+        <img src="IMG_20240717_203950_513.jpg" style="top: 10%; left: 30%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145219_833.jpg" style="top: 5%; left: 40%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240722_112807_661.jpg" style="top: 3%; left: 60%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240820_175734_159.jpg" style="top: 11%; left: 20%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145305_021.jpg" style="top: 9%; left: 80%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240813_201217_818.jpg" style="top: 4%; left: 10%;" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240909_135546.jpg" style="top: 2%; left: 50%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145305_021.jpg" style="top: 8%; left: 30%;" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240910_111118.jpg" style="top: 7%; left: 70%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240820_175830_892.jpg" style="top: 6%; left: 40%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+    </div>
 
+    <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+        <span style="position:absolute; top:10px; right:20px; color:white; font-size:30px; cursor:pointer;" onclick="closeModal()">&times;</span>
+        <img id="modal-img" style="max-width:90%; max-height:90%; margin:auto; display:block;">
+    </div>
 
     <script>
-        // Create 1000 stars
-        for (let i = 0; i < 1000; i++) {
+        const starCount = 1000;
+        const stars = [];
+
+        for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
-            star.classList.add('star');
-            const size = Math.random() * 3 + 2; // random size between 2 and 5
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.top = `${Math.random() * 100}vh`;
-            star.style.left = `${Math.random() * 100}vw`;
-            star.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // random duration between 0.5s and 1.5s
+            star.className = 'star';
+            const size = Math.random() * 4 + 1; // Star size between 1 and 5
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
             document.body.appendChild(star);
+            stars.push(star);
         }
 
-        // Modal functionality
         function openModal(src) {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = 0;
-            modal.style.left = 0;
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            modal.style.display = 'flex';
-            modal.style.alignItems = 'center';
-            modal.style.justifyContent = 'center';
-            modal.style.zIndex = 1000;
-            modal.onclick = () => modal.remove(); // Close modal on click
-            const img = document.createElement('img');
-            img.src = src;
-            img.style.maxWidth = '90%';
-            img.style.maxHeight = '90%';
-            modal.appendChild(img);
-            document.body.appendChild(modal);
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
         }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        const galleryImages = document.querySelectorAll('.gallery img');
+        galleryImages.forEach(img => {
+            img.style.animation = 'moveImage 8s infinite alternate';
+        });
     </script>
 </body>
 </html>
