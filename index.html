@@ -121,65 +121,76 @@
             position: absolute;
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(255, 218, 121, 1);
-            animation: orbit linear infinite;
         }
 
         .planet-1 {
             width: 80px;
             height: 80px;
             background: radial-gradient(circle, #ffda79, #f39c12);
-            top: 20%;
+            animation: orbit-1 30s linear infinite;
+            top: 50%;
             left: 5%;
-            animation-duration: 30s; /* Speed of planet */
         }
 
         .planet-2 {
             width: 100px;
             height: 100px;
             background: radial-gradient(circle, #2e8bff, #1a5bb8);
-            top: 60%;
-            left: 15%;
-            animation-duration: 45s; /* Speed of planet */
+            animation: orbit-2 45s linear infinite;
+            top: 50%;
+            left: 20%;
         }
 
         .planet-3 {
             width: 70px;
             height: 70px;
             background: radial-gradient(circle, #ff3d00, #c74b4b);
-            top: 30%;
-            left: 50%;
-            animation-duration: 50s; /* Speed of planet */
+            animation: orbit-3 50s linear infinite;
+            top: 50%;
+            left: 35%;
         }
 
         .planet-4 {
             width: 90px;
             height: 90px;
             background: radial-gradient(circle, #00ff00, #007700);
-            top: 70%;
-            left: 30%;
-            animation-duration: 55s; /* Speed of planet */
+            animation: orbit-4 55s linear infinite;
+            top: 50%;
+            left: 50%;
         }
 
         .planet-5 {
             width: 120px;
             height: 120px;
             background: radial-gradient(circle, #ff00ff, #800080);
-            top: 10%;
-            left: 70%;
-            animation-duration: 65s; /* Speed of planet */
+            animation: orbit-5 65s linear infinite;
+            top: 50%;
+            left: 65%;
         }
 
+        /* Sun-like planet */
+        .sun {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #fff000, #ffea00);
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 255, 0, 1);
+        }
+
+        /* Rings */
         .planet-rings {
             width: 140px;
             height: 140px;
             background: radial-gradient(circle, #ffa500, #ff4500);
             position: absolute;
-            top: 40%;
-            left: 40%;
+            top: 50%;
+            left: 50%;
             border-radius: 50%;
-            animation-duration: 70s; /* Speed of planet with rings */
-            z-index: 0; /* Behind the rings */
             box-shadow: 0 0 20px rgba(255, 218, 121, 1);
+            z-index: 0; /* Behind the rings */
         }
 
         .rings {
@@ -188,8 +199,8 @@
             height: 180px; /* Ring size */
             border: 10px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            top: 20%;
-            left: 20%;
+            top: 50%;
+            left: 50%;
             z-index: -1; /* Behind the planet */
             animation: rotate 10s linear infinite;
         }
@@ -197,6 +208,32 @@
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+
+        /* Orbit animations */
+        @keyframes orbit-1 {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-2 {
+            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-3 {
+            0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-4 {
+            0% { transform: rotate(0deg) translateX(350px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-5 {
+            0% { transform: rotate(0deg) translateX(400px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(400px) rotate(-360deg); }
         }
     </style>
 </head>
@@ -213,8 +250,8 @@
 
     <div class="main">
         <div class="message-box">
-            <div class="message">"Hey Lian, baby, hon, hubby, every moment with you feels like everything to me."</div>
-            <div class="message">"Together is my favorite place to be, my home."</div>
+            <div class="message">"Hey Lian, baby, hon, hubby, every moment with you feels like everything to me"</div>
+            <div class="message">"Together is my favorite place to be, my home"</div>
         </div>
 
         <div class="gallery">
@@ -247,6 +284,7 @@
         <div class="planet planet-3"></div>
         <div class="planet planet-4"></div>
         <div class="planet planet-5"></div>
+        <div class="sun"></div>
         <div class="planet-rings">
             <div class="rings"></div>
         </div>
