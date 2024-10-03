@@ -11,11 +11,9 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #4b4b4b;
+            color: #333;
             overflow-x: hidden;
             background-color: #fff5f8;
-            height: 100%;
-            position: relative;
         }
 
         /* Background and Hearts Animation */
@@ -25,14 +23,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+            background: linear-gradient(135deg, #ffd1dc, #ffe4e1);
             z-index: 0;
             animation: gradient 12s ease infinite alternate;
         }
 
         @keyframes gradient {
             0% {
-                background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+                background: linear-gradient(135deg, #ffd1dc, #ffe4e1);
             }
             100% {
                 background: linear-gradient(135deg, #f7a8a8, #ffdee8);
@@ -41,17 +39,16 @@
 
         .heart {
             position: absolute;
-            background-color: pink;
+            background-color: rgba(255, 182, 193, 0.8);
             animation: float 7s ease-in-out infinite, move 5s linear infinite;
             border-radius: 50%;
-            opacity: 0.8;
         }
 
         .heart::before,
         .heart::after {
             content: "";
             position: absolute;
-            background-color: pink;
+            background-color: rgba(255, 182, 193, 0.8);
             border-radius: 50%;
         }
 
@@ -86,7 +83,6 @@
             }
         }
 
-        /* Position hearts randomly */
         .heart:nth-child(1) {
             width: 80px;
             height: 80px;
@@ -145,16 +141,19 @@
         .cat:nth-child(1) {
             top: 5%;
             left: 15%;
+            width: 120px;
         }
 
         .cat:nth-child(2) {
             top: 50%;
             left: 60%;
+            width: 150px;
         }
 
         .cat:nth-child(3) {
             top: 70%;
             left: 10%;
+            width: 100px;
         }
 
         @keyframes bounce {
@@ -259,10 +258,10 @@
         <div class="heart"></div>
     </div>
 
-    <!-- Cute Cats -->
-    <img src="cat1.png" class="cat">
-    <img src="cat2.png" class="cat">
-    <img src="cat3.png" class="cat">
+    <!-- Cute Cats (Make sure you have images like 'cat1.png' ready in your project folder) -->
+    <img src="https://example.com/cat1.png" class="cat" alt="Cute Cat 1">
+    <img src="https://example.com/cat2.png" class="cat" alt="Cute Cat 2">
+    <img src="https://example.com/cat3.png" class="cat" alt="Cute Cat 3">
 
     <div class="container">
         <h1>Happy 6th Monthsary, Lian! ❤️</h1>
@@ -273,15 +272,15 @@
         <!-- Photo Gallery Section -->
         <div id="gallery" class="gallery">
             <div class="gallery-item">
-                <img src="pic1.jpg" alt="Lian and You">
+                <img src="https://example.com/pic1.jpg" alt="Lian and You">
                 <div class="caption">"Our first picture together! 💖"</div>
             </div>
             <div class="gallery-item">
-                <img src="pic2.jpg" alt="Memorable Moment">
+                <img src="https://example.com/pic2.jpg" alt="Memorable Moment">
                 <div class="caption">"Such a memorable day, isn't it?"</div>
             </div>
             <div class="gallery-item">
-                <img src="pic3.jpg" alt="Anniversary Celebration">
+                <img src="https://example.com/pic3.jpg" alt="Anniversary Celebration">
                 <div class="caption">"Happy Anniversary to us! 🎉"</div>
             </div>
             <!-- Add more images and captions as needed -->
@@ -303,7 +302,7 @@
                         entry.target.classList.add('show');
                     }
                 });
-            }, { threshold: 0.5 });
+            });
 
             galleryItems.forEach(item => {
                 observer.observe(item);
