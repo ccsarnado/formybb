@@ -3,123 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 6th Monthsary to us, baby <3</title>
-    <link rel="icon" href="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file if needed -->
     <style>
-        /* Your existing styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f1928; /* Background color */
+            color: #fff;
+            overflow: hidden; /* Prevent scrollbars */
+            position: relative; /* For positioning stars */
+        }
 
-        /* Planet styles */
-        .planet {
+        /* Sun style */
+        .sun {
             position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #ffda79;
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 218, 121, 1);
+            box-shadow: 0 0 30px rgba(255, 218, 121, 0.8);
+            top: 20px;
+            left: 20px;
         }
 
-        .planet-1 {
-            width: 150px; /* Increased size */
-            height: 150px; /* Increased size */
-            background: radial-gradient(circle, #ffda79, #f39c12);
-            animation: orbit-1 30s linear infinite;
-            top: 10%;
-            left: 10%;
+        /* Image container styles */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center images */
+            align-items: center; /* Align images vertically */
+            position: relative; /* Relative positioning for children */
+            margin-top: 150px; /* Space from the sun */
+            gap: 20px; /* Gap between images */
         }
 
-        .planet-2 {
-            width: 170px; /* Increased size */
-            height: 170px; /* Increased size */
-            background: radial-gradient(circle, #2e8bff, #1a5bb8);
-            animation: orbit-2 45s linear infinite;
-            top: 20%;
-            right: 10%;
+        /* Individual image styles */
+        .image-container img {
+            max-width: 250px; /* Max width for images */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+            cursor: pointer; /* Pointer on hover */
+            transition: transform 0.3s; /* Smooth transform on hover */
         }
 
-        .planet-3 {
-            width: 200px; /* Increased size */
-            height: 200px; /* Increased size */
-            background: radial-gradient(circle, #f39c12, #c0392b);
-            animation: orbit-3 60s linear infinite;
-            top: 30%;
-            left: 40%;
-        }
-
-        .planet-4 {
-            width: 220px; /* Increased size */
-            height: 220px; /* Increased size */
-            background: radial-gradient(circle, #8e44ad, #5b2c6f);
-            animation: orbit-4 75s linear infinite;
-            top: 40%;
-            left: 70%;
-        }
-
-        @keyframes orbit-1 {
-            0% { transform: rotate(0deg) translate(0); }
-            100% { transform: rotate(360deg) translate(0); }
-        }
-
-        @keyframes orbit-2 {
-            0% { transform: rotate(0deg) translate(0); }
-            100% { transform: rotate(360deg) translate(0); }
-        }
-
-        @keyframes orbit-3 {
-            0% { transform: rotate(0deg) translate(0); }
-            100% { transform: rotate(360deg) translate(0); }
-        }
-
-        @keyframes orbit-4 {
-            0% { transform: rotate(0deg) translate(0); }
-            100% { transform: rotate(360deg) translate(0); }
-        }
-
-        /* Star styles */
-        .star {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: twinkle var(--twinkle-duration) infinite alternate;
-            left: calc(var(--x) * 100vw);
-            top: calc(var(--y) * 100vh);
-            width: var(--size);
-            height: var(--size);
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .image-container img:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8); /* Glow effect on hover */
         }
 
         /* Modal styles */
         .modal {
-            display: none;
+            display: none; /* Hidden by default */
             position: fixed;
-            z-index: 1000;
+            z-index: 1000; /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
         }
 
-        .modal img {
-            max-width: 80%;
-            max-height: 80%;
+        /* Modal image */
+        .modal-content {
+            margin: 15% auto; /* 15% from the top and centered */
+            display: block;
+            max-width: 80%; /* Max width of image */
+            max-height: 80%; /* Max height of image */
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Message box styles */
+        .message-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%; /* Width of the message box */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+            text-align: center;
+             cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+         .message-box:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8);
+         }
+
+        /* Stars styles */
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            100% { opacity: 0.2; }
         }
     </style>
 </head>
 <body>
-    <div class="gallery">
-        <div class="planet planet-1"></div>
-        <div class="planet planet-2"></div>
-        <div class="planet planet-3"></div>
-        <div class="planet planet-4"></div>
-
-        <div class="modal" id="modal" onclick="this.style.display='none'">
-            <img id="modal-image" src="" alt="Modal Image">
-        </div>
-
+    <div class="sun"></div> <!-- Sun element -->
+    
+    <div class="image-container">
         <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
         <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
         <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
@@ -143,6 +147,21 @@
         <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
     </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <!-- Message Box -->
+    <div class="message-box">
+        Lian, you have filled my life with so much joy and love. Your kindness and thoughtfulness shine brightly every day. 
+        From the little gestures to the big surprises, every moment with you makes me fall deeper in love. 
+        Your laughter is my favorite sound, and your smile lights up my world. 
+        Thank you for being you, for all the ways you support me, and for all the adventures we share. 
+        I can't wait to create even more memories with you. I love you so much hubby, mwa mwa.
+    </div>
+
     <script>
         // Star generation
         const starCount = 1000;
@@ -151,28 +170,26 @@
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.setProperty('--x', Math.random());
-            star.style.setProperty('--y', Math.random());
-            star.style.setProperty('--size', Math.random() * 3 + 'px');
-            star.style.setProperty('--twinkle-duration', Math.random() * 2 + 1 + 's');
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDuration = Math.random() * 1 + 1 + 's';
             starContainer.appendChild(star);
         }
 
-        // Function to open modal
-        function openModal(src) {
-            const modal = document.getElementById('modal');
-            const modalImage = document.getElementById('modal-image');
-            modalImage.src = src;
-            modal.style.display = 'flex';
+        // Modal functions
+        function openModal(img) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = img.src; // Set the modal image to the clicked image
         }
 
-        // Scatter images randomly
-        const images = document.querySelectorAll('.gallery img');
-        images.forEach((img) => {
-            img.style.position = 'absolute';
-            img.style.left = Math.random() * 80 + 10 + '%'; // Random horizontal position
-            img.style.top = Math.random() * 80 + 10 + '%'; // Random vertical position
-        });
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Hide the modal
+        }
     </script>
 </body>
 </html>
