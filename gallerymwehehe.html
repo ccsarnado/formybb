@@ -14,6 +14,7 @@
             color: #fff;
             overflow: auto; /* Prevent scrollbars */
             position: relative; /* For positioning stars */
+            height: 200vh
         }
 
         /* Sun style */
@@ -127,6 +128,14 @@
             0% { opacity: 0.8; }
             100% { opacity: 0.2; }
         }
+
+         #starfield {
+            position: fixed; /* Fixed positioning */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow clicks through stars */
         /* Planet styles */
         .planet {
             position: absolute;
@@ -204,6 +213,7 @@
     </style>
 </head>
 <body>
+    <div id="starfield"></div>
     <div class="sun"></div> <!-- Sun element -->
     
     <div class="image-container">
@@ -252,8 +262,8 @@
 
     <script>
         // Star generation
-        const starCount = 1000;
-        const starContainer = document.body;
+        const starCount = 3000;
+        const starContainer = document.getElementById('starfield');
 
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
