@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Gallery Mwehehe</title>
     <link rel="icon" href="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -51,14 +51,15 @@
             border-radius: 50%; /* Make images circular */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Static shadow */
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            position: absolute; /* Position images absolutely */
         }
 
         .gallery img:hover {
             transform: scale(1.1); /* Image zooms in slightly */
             box-shadow: 0 8px 16px rgba(255, 218, 121, 0.8), 0 0 20px rgba(255, 218, 121, 1); /* Yellow glow on hover */
         }
-        
-   /* Modal Styles */
+
+        /* Modal Styles */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -101,8 +102,8 @@
             height: 110px; /* Increased size */
             background: radial-gradient(circle, #ffda79, #f39c12);
             animation: orbit-1 30s linear infinite;
-            top: 20%;
-            left: 10%;
+            top: 10%;
+            left: 5%;
         }
 
         .planet-2 {
@@ -110,8 +111,8 @@
             height: 130px; /* Increased size */
             background: radial-gradient(circle, #2e8bff, #1a5bb8);
             animation: orbit-2 45s linear infinite;
-            top: 70%;
-            left: 20%;
+            top: 60%;
+            left: 15%;
         }
 
         .planet-3 {
@@ -119,8 +120,8 @@
             height: 100px; /* Increased size */
             background: radial-gradient(circle, #ff3d00, #c74b4b);
             animation: orbit-3 50s linear infinite;
-            top: 50%;
-            left: 40%;
+            top: 40%;
+            left: 45%;
         }
 
         .planet-4 {
@@ -129,7 +130,7 @@
             background: radial-gradient(circle, #d3d3d3, #a9a9a9); /* Light grey color */
             animation: orbit-4 55s linear infinite;
             top: 40%;
-            left: 60%;
+            left: 65%;
         }
 
         .sun {
@@ -167,72 +168,67 @@
 </head>
 <body>
 
-        <div class="gallery">
-            <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
-            <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240909_135546.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
-            <img src="IMG_20240928_130113.jpg" alt="Moment 17" onclick="openModal(this.src)" loading="lazy">
-            <img src="Messenger_creation_bc93b4e8-cd4d-4b27-b31c-8a5e68dfa1d8.jpeg" alt="Moment 18" onclick="openModal(this.src)" loading="lazy">
-            <img src="Messenger_creation_d06ba46f-1c07-487e-b86f-29ca83208a54.jpeg" alt="Moment 19" onclick="openModal(this.src)" loading="lazy">
-            <img src="ab07fde6-3406-48af-8e8b-a09507ea4b5b.jpeg" alt="Moment 20" onclick="openModal(this.src)" loading="lazy">
-            <img src="bd05f9f3-206f-4780-bd17-6062c9e13f43.jpeg" alt="Moment 21" onclick="openModal(this.src)" loading="lazy">
-        </div>
+    <div class="gallery">
+        <img src="0a85efbd-4d76-4852-8a6e-61e3efc2f5f7.jpeg" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240530_111356_771.jpg" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240717_203950_513.jpg" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145219_833.jpg" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240722_112807_661.jpg" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240722_112826_289.jpg" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240904_122750.jpg" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145154_108.jpg" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240722_112734_689.jpg" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">  
+        <img src="IMG_20240819_145305_021.jpg" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145322_858.jpg" alt="Moment 11" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240813_201217_818.jpg" alt="Moment 12" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240904_224615.jpg" alt="Moment 13" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240907_144440.jpg" alt="Moment 14" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240909_135523.jpg" alt="Moment 15" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240911_093149.jpg" alt="Moment 16" onclick="openModal(this.src)" loading="lazy">
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
+    <div class="modal" id="myModal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
-    <script>
-        // Modal functions
-        function openModal(src) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = src;
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-
-        // Star generation
-        const starCount = 1000;
-        const starContainer = document.body; // Append stars to body
-
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            // Set random position, size, and twinkle duration for each star
-            star.style.setProperty('--x', Math.random());
-            star.style.setProperty('--y', Math.random());
-            star.style.setProperty('--size', Math.random() * 3 + 'px'); // Size between 0px and 3px
-            star.style.setProperty('--twinkle-duration', Math.random() * 2 + 1 + 's'); // Twinkle duration between 1s and 3s
-            starContainer.appendChild(star);
-        }
-    </script>
-    
-    <!-- Planet elements -->
     <div class="planet planet-1"></div>
     <div class="planet planet-2"></div>
     <div class="planet planet-3"></div>
     <div class="planet planet-4"></div>
     <div class="sun"></div>
+
+    <script>
+        // JavaScript for opening and closing modal
+        function openModal(src) {
+            document.getElementById("img01").src = src;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Function to generate stars
+        function createStars() {
+            const numStars = 1000; // Number of stars
+            const body = document.body;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3; // Random size for stars
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}vh`; // Random vertical position
+                star.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+                star.style.animationDuration = `${Math.random() * 1 + 1}s`; // Random flicker duration
+                star.style.animationDelay = `${Math.random() * 2}s`; // Random delay for flicker
+                body.appendChild(star);
+            }
+        }
+
+        // Create stars on page load
+        window.onload = createStars;
+    </script>
 </body>
 </html>
