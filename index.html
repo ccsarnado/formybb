@@ -55,7 +55,6 @@
             text-align: center;
             padding-top: 160px;
             color: #fff;
-            position: relative;
         }
 
         .message-box {
@@ -68,6 +67,11 @@
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 10;
+            transition: transform 0.3s;
+        }
+
+        .message-box:hover {
+            transform: scale(1.05);
         }
 
         .message {
@@ -78,7 +82,7 @@
 
         .gallery {
             position: relative;
-            height: 400px; /* Adjusted height */
+            height: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,15 +96,6 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 218, 121, 0.7);
             position: absolute;
-            animation: moveImage 8s infinite alternate;
-        }
-
-        @keyframes moveImage {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(20vw - 10%), calc(10vh - 5%)); }
-            50% { transform: translate(calc(40vw - 20%), calc(15vh - 10%)); }
-            75% { transform: translate(calc(60vw - 30%), calc(5vh - 5%)); }
-            100% { transform: translate(calc(30vw - 15%), calc(20vh - 10%)); }
         }
 
         .planet {
@@ -108,43 +103,66 @@
             border-radius: 50%;
             opacity: 0.8;
             box-shadow: 0 0 20px rgba(255, 218, 121, 0.7);
-            animation: glow 1.5s infinite alternate, move 10s infinite alternate;
-        }
-
-        @keyframes move {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(calc(20vw - 10%), calc(15vh - 10%)); }
-            50% { transform: translate(calc(40vw - 20%), calc(10vh - 5%)); }
-            75% { transform: translate(calc(60vw - 30%), calc(20vh - 15%)); }
-            100% { transform: translate(calc(30vw - 15%), calc(25vh - 10%)); }
         }
 
         .planet-1 {
             width: 160px;
             height: 160px;
             background: radial-gradient(circle, #ffda79, #ffce00);
-            animation-delay: 0s;
+            animation: movePlanet1 10s infinite alternate;
         }
 
         .planet-2 {
             width: 140px;
             height: 140px;
             background: radial-gradient(circle, #c0c0c0, #a8a8a8);
-            animation-delay: 2s;
+            animation: movePlanet2 12s infinite alternate;
         }
 
         .planet-3 {
             width: 150px;
             height: 150px;
             background: radial-gradient(circle, #00aaff, #007bb2);
-            animation-delay: 1s;
+            animation: movePlanet3 8s infinite alternate;
         }
 
         .planet-4 {
             width: 135px;
             height: 135px;
             background: radial-gradient(circle, #ff7777, #b42d2d);
-            animation-delay: 3s;
+            animation: movePlanet4 11s infinite alternate;
+        }
+
+        @keyframes movePlanet1 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(10vw - 5%), calc(5vh - 5%)); }
+            50% { transform: translate(calc(30vw - 15%), calc(15vh - 10%)); }
+            75% { transform: translate(calc(40vw - 20%), calc(10vh - 5%)); }
+            100% { transform: translate(calc(20vw - 10%), calc(20vh - 15%)); }
+        }
+
+        @keyframes movePlanet2 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(15vw - 10%), calc(8vh - 8%)); }
+            50% { transform: translate(calc(25vw - 15%), calc(12vh - 5%)); }
+            75% { transform: translate(calc(35vw - 20%), calc(5vh - 3%)); }
+            100% { transform: translate(calc(45vw - 25%), calc(18vh - 10%)); }
+        }
+
+        @keyframes movePlanet3 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(20vw - 10%), calc(10vh - 5%)); }
+            50% { transform: translate(calc(35vw - 15%), calc(15vh - 8%)); }
+            75% { transform: translate(calc(40vw - 25%), calc(10vh - 5%)); }
+            100% { transform: translate(calc(30vw - 15%), calc(20vh - 12%)); }
+        }
+
+        @keyframes movePlanet4 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(5vw - 5%), calc(7vh - 5%)); }
+            50% { transform: translate(calc(20vw - 10%), calc(12vh - 10%)); }
+            75% { transform: translate(calc(30vw - 15%), calc(8vh - 5%)); }
+            100% { transform: translate(calc(15vw - 10%), calc(20vh - 15%)); }
         }
 
         .sun {
@@ -152,18 +170,14 @@
             height: 350px; 
             background: radial-gradient(circle, #fff000, #ffea00);
             position: absolute;
-            top: 15%; /* Adjusted position */
-            left: 15%; /* Adjusted position */
+            top: 30%; 
+            right: 30%; 
             transform: translate(-50%, -50%);
             border-radius: 50%;
             box-shadow: 0 0 50px rgba(255, 255, 0, 1);
             animation: glow 1.5s infinite alternate;
         }
 
-        @keyframes glow {
-            0% { box-shadow: 0 0 50px rgba(255, 255, 0, 1); }
-            100% { box-shadow: 0 0 80px rgba(255, 255, 0, 1); }
-        }
     </style>
 </head>
 <body>
@@ -185,20 +199,32 @@
     </div>
 
     <div class="gallery">
-        <img src="IMG_20240717_203950_513.jpg" style="top: 10%; left: 30%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240819_145219_833.jpg" style="top: 5%; left: 40%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240722_112807_661.jpg" style="top: 3%; left: 60%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240820_175734_159.jpg" style="top: 11%; left: 20%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240819_145305_021.jpg" style="top: 9%; left: 80%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240813_201217_818.jpg" style="top: 12%; left: 50%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240819_145335_944.jpg" style="top: 15%; left: 70%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240730_153530_307.jpg" style="top: 8%; left: 15%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240720_163030_645.jpg" style="top: 6%; left: 25%;" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
-        <img src="IMG_20240820_195828_844.jpg" style="top: 14%; left: 35%;" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240717_203950_513.jpg" style="top: 10%; left: 30%;" alt="Moment 1" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240819_145219_833.jpg" style="top: 5%; left: 40%;" alt="Moment 2" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240720_100905_264.jpg" style="top: 10%; left: 20%;" alt="Moment 3" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240715_160428_308.jpg" style="top: 8%; left: 60%;" alt="Moment 4" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240801_174210_838.jpg" style="top: 12%; left: 70%;" alt="Moment 5" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240710_120435_835.jpg" style="top: 7%; left: 80%;" alt="Moment 6" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240815_123715_248.jpg" style="top: 15%; left: 90%;" alt="Moment 7" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240725_143057_610.jpg" style="top: 20%; left: 50%;" alt="Moment 8" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240730_155056_152.jpg" style="top: 18%; left: 30%;" alt="Moment 9" onclick="openModal(this.src)" loading="lazy">
+        <img src="IMG_20240805_110435_540.jpg" style="top: 25%; left: 40%;" alt="Moment 10" onclick="openModal(this.src)" loading="lazy">
     </div>
 
     <script>
-        // Function to open modal with the clicked image
+        // Randomly position stars
+        for (let i = 0; i < 1000; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1; // Random size between 1 and 4px
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(star);
+        }
+
+        // Modal function for images
         function openModal(src) {
             const modal = document.createElement('div');
             modal.style.position = 'fixed';
@@ -208,42 +234,20 @@
             modal.style.height = '100%';
             modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
             modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
             modal.style.alignItems = 'center';
-            modal.style.zIndex = 2000;
+            modal.style.justifyContent = 'center';
+            modal.onclick = () => document.body.removeChild(modal);
 
             const img = document.createElement('img');
             img.src = src;
             img.style.maxWidth = '90%';
             img.style.maxHeight = '90%';
+            img.style.borderRadius = '10px';
+            img.style.boxShadow = '0 0 20px rgba(255, 218, 121, 0.7)';
+
             modal.appendChild(img);
-
-            modal.onclick = function() {
-                document.body.removeChild(modal);
-            };
-
             document.body.appendChild(modal);
         }
-
-        // Create stars in the background
-        function createStars(numStars) {
-            const starContainer = document.createElement('div');
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 5 + 2; // Random size between 2 and 7
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.top = `${Math.random() * 100}vh`;
-                star.style.left = `${Math.random() * 100}vw`;
-                starContainer.appendChild(star);
-            }
-            document.body.appendChild(starContainer);
-        }
-
-        createStars(1000); // Create 1000 stars
     </script>
 </body>
 </html>
-
-"IMG_20240813_201217_818.jpg" style
